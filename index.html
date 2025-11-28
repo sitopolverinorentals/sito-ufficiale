@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polverino Rentals - Gestione Professionale della Tua Proprietà</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0a2540;
+            --white: #ffffff;
+            --light-gray: #f8f9fb;
+            --medium-gray: #e5e8eb;
+            --gold: #d4af37;
+            --dark-gold: #b8961f;
+            --text-gray: #4a5568;
+            --success-green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--medium-gray);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a3a5f 100%);
+            color: var(--white);
+            padding: 120px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Sfondo immagine per Hero - Verona */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/foto per sfondi/verona.jpg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1;
+            z-index: 0;
+        }
+
+        /* Overlay gradiente sopra l'immagine per leggibilità */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.35) 0%, rgba(26, 58, 95, 0.40) 100%);
+            z-index: 0;
+        }
+
+        /* Pattern decorativo leggero */
+        .hero .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 35px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            display: inline-block;
+        }
+
+        .hero .subtext {
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 35px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 70px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--primary-blue);
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--dark-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Trust Badges */
+        .trust-section {
+            background: linear-gradient(90deg, var(--light-gray) 0%, #f0f4f8 50%, var(--light-gray) 100%);
+            padding: 40px 20px;
+            border-top: 1px solid var(--medium-gray);
+            border-bottom: 1px solid var(--medium-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trust-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.3) 50%, transparent 100%);
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .trust-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--success-green);
+            font-size: 1.5rem;
+        }
+
+        /* Sezione Problemi */
+        .problems-section {
+            background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problems-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .problems-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(10, 37, 64, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .problems-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .problem-card {
+            padding: 45px 35px;
+            background: var(--white);
+            border-radius: 16px;
+            border-left: 5px solid var(--gold);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+            border-left-color: var(--dark-gold);
+        }
+
+        .problem-card:hover::before {
+            top: -30%;
+            right: -30%;
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .problem-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .problem-card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a3a5f 100%);
+            color: var(--white);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .stat-item p {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        /* Come Funziona Section - Storia di Federico */
+        .how-it-works-section {
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .how-it-works-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 35%;
+            background-image: url('images/foto per sfondi/pisa.jpg.jpg');
+            background-size: 100%;
+            background-position: center top;
+            background-repeat: no-repeat;
+            opacity: 1;
+            z-index: 0;
+        }
+
+        .how-it-works-section::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/foto per sfondi/venezia.jpg.jpg');
+            background-size: 100%;
+            background-position: center top;
+            background-repeat: no-repeat;
+            opacity: 1;
+            z-index: 0;
+        }
+
+        .how-it-works-section .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* Riquadri vetrati per i titoli della sezione Come Funziona */
+        .how-it-works-section .section-title {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 35px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            color: var(--white);
+        }
+
+        .how-it-works-section .section-subtitle {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            color: var(--white);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* Story Intro */
+        .story-intro {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 60px auto 80px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .story-intro-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .story-intro-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease;
+        }
+
+        .story-intro-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .story-intro-text h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .story-intro-text p {
+            color: var(--text-gray);
+            line-height: 1.9;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .story-highlight {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+            border-left: 4px solid var(--gold);
+            padding: 25px 30px;
+            border-radius: 12px;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--primary-blue);
+            margin-top: 30px;
+        }
+
+        /* Image Placeholders */
+        .image-placeholder {
+            background: linear-gradient(135deg, #f0f2f5, #e4e7eb);
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            border: 3px dashed var(--medium-gray);
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .image-placeholder:hover {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, #fafbfc, #f0f2f5);
+        }
+
+        .placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.4;
+        }
+
+        .image-placeholder p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 300px;
+        }
+
+        /* Transformation Timeline */
+        .transformation-timeline {
+            margin-top: 80px;
+        }
+
+        .transformation-step {
+            margin-bottom: 40px;
+            position: relative;
+            text-align: left;
+        }
+
+        .step-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .step-number {
+            display: none;
+        }
+
+        .step-label {
+            display: inline;
+        }
+
+        .step-content-wrapper {
+            display: block;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            flex: 1;
+        }
+
+        .step-content-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .step-reverse {
+            flex-direction: row;
+        }
+
+        /* Arrow between steps */
+        .transformation-step::after {
+            content: '↓';
+            display: block;
+            text-align: center;
+            font-size: 2rem;
+            color: var(--gold);
+            margin: 30px 0;
+            font-weight: bold;
+        }
+
+        .transformation-step:last-child::after {
+            display: none;
+        }
+
+        .step-image {
+            margin-bottom: 30px;
+        }
+
+        .step-image img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .step-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .step-text h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .step-description {
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .step-checklist {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .step-checklist li {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            padding-left: 10px;
+        }
+
+        .step-checklist li strong {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .step-result {
+            background: var(--light-gray);
+            border-left: 4px solid var(--gold);
+            padding: 20px 25px;
+            border-radius: 10px;
+            margin-top: 25px;
+        }
+
+        .step-result p {
+            color: var(--primary-blue);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Results Step Special Styling */
+        .results-step .step-content-wrapper {
+            background: linear-gradient(135deg, #f0fdf4, #fff);
+            border: 2px solid var(--success-green);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .result-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            border: 2px solid var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: scale(1.05);
+            border-color: var(--gold);
+        }
+
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--success-green);
+            margin-bottom: 10px;
+        }
+
+        .result-label {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .success-highlight {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+            border-left-color: var(--success-green);
+            margin-top: 30px;
+        }
+
+        .success-highlight p {
+            font-size: 1.15rem;
+            color: var(--primary-blue);
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .success-placeholder {
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-color: var(--success-green);
+        }
+
+        /* Story CTA */
+        .story-cta {
+            background: linear-gradient(135deg, var(--primary-blue), #1a3a5f);
+            color: var(--white);
+            padding: 60px 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 80px;
+            box-shadow: 0 15px 50px rgba(10, 37, 64, 0.2);
+        }
+
+        .story-cta h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .story-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* Galleria Proprietà */
+        .gallery-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/foto per sfondi/firenze.jpg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1;
+            z-index: 0;
+        }
+
+        .gallery-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.35) 0%, rgba(26, 58, 95, 0.40) 100%);
+            z-index: 1;
+        }
+
+        .gallery-section .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* Riquadri vetrati per i titoli della sezione Galleria */
+        .gallery-section .section-title {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 35px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            color: var(--white);
+        }
+
+        .gallery-section .section-subtitle {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            color: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: var(--white);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 5px solid rgba(255, 255, 255, 0.9);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 37, 64, 0.95), rgba(10, 37, 64, 0.7));
+            padding: 30px;
+            transform: translateY(0);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            background: linear-gradient(to top, rgba(10, 37, 64, 0.98), rgba(10, 37, 64, 0.85));
+        }
+
+        .gallery-overlay h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .gallery-overlay p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.95rem;
+        }
+
+        .gallery-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100%;
+            color: var(--text-gray);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .gallery-placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        /* Sezione Soluzione */
+        .solution-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/foto per sfondi/risultati.jpg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1;
+            z-index: 0;
+        }
+
+        .solution-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.35) 0%, rgba(26, 58, 95, 0.40) 100%);
+            z-index: 1;
+        }
+
+        .solution-section .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* Riquadri vetrati per i titoli della sezione Soluzione */
+        .solution-section .section-title {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 35px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            color: var(--white);
+        }
+
+        .solution-section .section-subtitle {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            color: var(--white);
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .solution-card {
+            background: var(--white);
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 5px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--dark-gold));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .solution-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .solution-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 60px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .solution-card p {
+            color: var(--text-gray);
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: linear-gradient(180deg, var(--white) 0%, #fafbfc 100%);
+            position: relative;
+        }
+
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            background: var(--light-gray);
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--gold);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: var(--gold);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 30px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 30px 25px 30px;
+        }
+
+        .faq-answer p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Sezione Recensioni */
+        .reviews-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reviews-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/foto per sfondi/fiducia.jpg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1;
+            z-index: 0;
+        }
+
+        .reviews-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.35) 0%, rgba(26, 58, 95, 0.40) 100%);
+            z-index: 1;
+        }
+
+        .reviews-section .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* Riquadri vetrati per i titoli della sezione Recensioni */
+        .reviews-section .section-title {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 35px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            color: var(--white);
+        }
+
+        .reviews-section .section-subtitle {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            color: var(--white);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 3px solid transparent;
+            overflow: hidden;
+        }
+
+        .review-card::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            border-top-color: var(--gold);
+        }
+
+        .review-card:hover::before {
+            bottom: -50px;
+            right: -50px;
+        }
+
+        .quote-mark {
+            font-size: 4.5rem;
+            color: var(--gold);
+            opacity: 0.2;
+            line-height: 1;
+            margin-bottom: -25px;
+            font-family: Georgia, serif;
+        }
+
+        .review-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .review-stars {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+        }
+
+        .review-role {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-top: 6px;
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+            position: relative;
+        }
+
+        .contact-form-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 60px auto 0;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 1;
+            border: 1px solid var(--medium-gray);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 1.05rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.15rem;
+        }
+
+        /* CTA Finale */
+        .final-cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a3a5f 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid2" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid2)"/></svg>');
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .final-cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .final-cta-section p {
+            font-size: 1.35rem;
+            margin-bottom: 45px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .guarantee-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 18px 35px;
+            border-radius: 50px;
+            margin-top: 35px;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .footer {
+            background-color: #051827;
+            color: var(--white);
+            padding: 60px 20px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 2;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .section {
+                padding: 70px 20px;
+            }
+
+            /* Story Mobile Styles */
+            .story-intro {
+                padding: 30px;
+            }
+
+            .story-intro-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .story-intro-text h3 {
+                font-size: 1.6rem;
+            }
+
+            .story-intro-text p {
+                font-size: 1rem;
+            }
+
+            .story-highlight {
+                padding: 20px;
+                font-size: 1.05rem;
+            }
+
+            .transformation-step {
+                margin-bottom: 50px;
+            }
+
+            .step-badge {
+                padding: 12px 25px;
+                gap: 12px;
+            }
+
+            .step-number {
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+            }
+
+            .step-label {
+                font-size: 0.95rem;
+            }
+
+            .step-content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px;
+            }
+
+            .step-reverse .step-content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .step-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .step-description {
+                font-size: 1rem;
+            }
+
+            .step-checklist li {
+                font-size: 0.95rem;
+                line-height: 2;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .result-card {
+                padding: 20px;
+            }
+
+            .result-number {
+                font-size: 2rem;
+            }
+
+            .result-label {
+                font-size: 0.9rem;
+            }
+
+            .image-placeholder {
+                min-height: 250px;
+                padding: 40px 25px;
+            }
+
+            .placeholder-icon {
+                font-size: 3rem;
+            }
+
+            .image-placeholder p {
+                font-size: 0.85rem;
+            }
+
+            .story-cta {
+                padding: 40px 30px;
+            }
+
+            .story-cta h3 {
+                font-size: 1.7rem;
+            }
+
+            .story-cta p {
+                font-size: 1.05rem;
+            }
+
+            .story-intro-image img {
+                border-radius: 12px;
+            }
+
+            .step-image img {
+                min-height: 250px;
+                max-height: 350px;
+                border-radius: 12px;
+            }
+
+            .form-container {
+                padding: 30px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .final-cta-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">Polverino Rentals</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#servizi">Servizi</a></li>
+                    <li><a href="#come-funziona">Come Funziona</a></li>
+                    <li><a href="#recensioni">Recensioni</a></li>
+                    <li><a href="#contatti">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-content">
+            <h1>Il Tuo Immobile Sta Rendendo Quanto Dovrebbe?</h1>
+            <p class="subtitle">Garantiamo l'aumento dei tuoi guadagni dal 25% al 50% in più oppure non verremo pagati!</p>
+            <p class="subtext">Trasforma la tua proprietà in una fonte di reddito costante e prevedibile, senza stress e senza preoccupazioni</p>
+            <a href="#contatti" class="cta-button">Richiedi una Consulenza Gratuita</a>
+        </div>
+    </section>
+
+    <!-- TRUST BADGES -->
+    <section class="trust-section">
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <span class="trust-icon">✓</span>
+                <span>Oltre 50 Proprietà Gestite</span>
+            </div>
+            <div class="trust-badge">
+                <span class="trust-icon">✓</span>
+                <span>Assistenza 24/7</span>
+            </div>
+            <div class="trust-badge">
+                <span class="trust-icon">✓</span>
+                <span>Pagamenti Garantiti</span>
+            </div>
+            <div class="trust-badge">
+                <span class="trust-icon">✓</span>
+                <span>100% Trasparenza</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE PROBLEMI -->
+    <section class="section problems-section">
+        <div class="container">
+            <h2 class="section-title">Ti Riconosci in Queste Situazioni?</h2>
+            <p class="section-subtitle">Molti proprietari affrontano queste sfide quotidianamente. Non sei solo.</p>
+
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <span class="problem-icon">😓</span>
+                    <h3>Troppo Tempo ed Energie</h3>
+                    <p>Gestire ospiti, pulizie, manutenzione e emergenze ti porta via tempo prezioso che potresti dedicare ad altro.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-icon">📉</span>
+                    <h3>Rendimenti Sotto le Aspettative</h3>
+                    <p>Sai che il tuo immobile potrebbe rendere di più, ma non hai il tempo o le competenze per ottimizzare prezzi e occupazione.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-icon">🔧</span>
+                    <h3>Gestione Complicata</h3>
+                    <p>Coordinare pulizie, check-in, manutenzioni e comunicare con gli ospiti è diventato un secondo lavoro non retribuito.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-icon">😰</span>
+                    <h3>Stress e Imprevisti</h3>
+                    <p>Chiamate urgenti a tutte le ore, ospiti problematici, danni alla proprietà: ogni settimana c'è qualcosa di nuovo.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-icon">📱</span>
+                    <h3>Sempre Reperibile</h3>
+                    <p>Non puoi mai staccare veramente. Le notifiche dalle piattaforme di prenotazione non ti danno pace, neanche in vacanza.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-icon">💸</span>
+                    <h3>Costi Imprevisti</h3>
+                    <p>Manutenzioni urgenti, forniture da sostituire, cancellazioni dell'ultimo minuto erodono i tuoi profitti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>25-50%</h3>
+                <p>Aumento garantito dei guadagni o non ci paghi</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Assistenza ospiti sempre attiva</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Gestione completa della proprietà</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Tasso di soddisfazione clienti</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COME FUNZIONA: LA STORIA DI FEDERICO -->
+    <section class="section how-it-works-section" id="come-funziona">
+        <div class="container">
+            <h2 class="section-title">La Storia di Federico</h2>
+            <p class="section-subtitle">Da appartamento inoccupato a successo garantito in 4 settimane</p>
+
+            <!-- Intro Storia -->
+            <div class="story-intro">
+                <div class="story-intro-content">
+                    <div class="story-intro-text">
+                        <h3>Il Problema di Federico</h3>
+                        <p>Federico possedeva un bellissimo appartamento in pieno centro a Firenze. Sulla carta, tutto perfetto: posizione strategica, 80mq, ristrutturato. Ma la realtà era diversa.</p>
+                        <p><strong>Il suo immobile rendeva solo il 30% del suo potenziale.</strong> Tra foto scadenti fatte con lo smartphone, annunci poco efficaci e nessuna strategia di pricing, l'occupazione era bassissima. Federico aveva investito tanto ma i risultati non arrivavano.</p>
+                        <p class="story-highlight">"Sapevo che qualcosa non andava, ma non capivo cosa. Lavoravo tutto il giorno per poche prenotazioni e guadagni deludenti."</p>
+                    </div>
+                    <div class="story-intro-image">
+                        <img src="images/foto per COME FUNZIONA/1Intro.jpg" alt="Appartamento di Federico prima della trasformazione">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline della Trasformazione -->
+            <div class="transformation-timeline">
+
+                <!-- Step 1: Consulenza -->
+                <div class="transformation-step">
+                    <div class="step-badge">
+                        <span class="step-number">1</span>
+                        <span class="step-label">SETTIMANA 1</span>
+                    </div>
+                    <div class="step-content-wrapper">
+                        <div class="step-text">
+                            <h3>Consulenza Gratuita: Analisi Completa</h3>
+                            <p class="step-description">Federico ci ha contattato e in 48 ore abbiamo fissato una consulenza gratuita. Durante l'incontro abbiamo:</p>
+                            <ul class="step-checklist">
+                                <li>✓ Analizzato la proprietà e la zona</li>
+                                <li>✓ Studiato la concorrenza nel centro di Firenze</li>
+                                <li>✓ Calcolato il potenziale di rendita reale: <strong>€3.200/mese</strong></li>
+                                <li>✓ Identificato i problemi: foto inadeguate, pricing errato, zero ottimizzazione SEO</li>
+                            </ul>
+                            <div class="step-result">
+                                <p><strong>Risultato:</strong> Federico ha capito esattamente quanto stava perdendo e ha deciso di affidarci la gestione completa.</p>
+                            </div>
+                        </div>
+                        <div class="step-image">
+                            <img src="images/foto per COME FUNZIONA/Step1.jpg" alt="Consulenza gratuita e analisi completa">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Setup Professionale -->
+                <div class="transformation-step step-reverse">
+                    <div class="step-badge">
+                        <span class="step-number">2</span>
+                        <span class="step-label">SETTIMANA 2</span>
+                    </div>
+                    <div class="step-content-wrapper">
+                        <div class="step-image">
+                            <img src="images/foto per COME FUNZIONA/Step 2.jpg" alt="Servizio fotografico professionale">
+                        </div>
+                        <div class="step-text">
+                            <h3>Servizio Fotografico Professionale</h3>
+                            <p class="step-description">Abbiamo trasformato completamente la presentazione dell'appartamento:</p>
+                            <ul class="step-checklist">
+                                <li>✓ Servizio fotografico professionale con luce naturale</li>
+                                <li>✓ 35+ foto HD di ogni ambiente</li>
+                                <li>✓ Virtual staging per valorizzare gli spazi</li>
+                                <li>✓ Video tour immersivo a 360°</li>
+                            </ul>
+                            <div class="step-result">
+                                <p><strong>Risultato:</strong> Le foto professionali hanno aumentato il click-through rate del 340% rispetto alle vecchie immagini.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Strategia e Lancio -->
+                <div class="transformation-step">
+                    <div class="step-badge">
+                        <span class="step-number">3</span>
+                        <span class="step-label">SETTIMANA 3</span>
+                    </div>
+                    <div class="step-content-wrapper">
+                        <div class="step-text">
+                            <h3>Strategia di Gestione Completa</h3>
+                            <p class="step-description">Abbiamo implementato la nostra strategia proprietaria su tutti i fronti:</p>
+                            <ul class="step-checklist">
+                                <li>✓ Creazione annunci ottimizzati su Airbnb, Booking.com e Vrbo</li>
+                                <li>✓ Pricing dinamico basato su domanda ed eventi a Firenze</li>
+                                <li>✓ Sistema di gestione ospiti automatizzato 24/7</li>
+                                <li>✓ Coordinamento pulizie professionali</li>
+                                <li>✓ Setup smart lock per check-in autonomi</li>
+                            </ul>
+                            <div class="step-result">
+                                <p><strong>Risultato:</strong> L'appartamento è andato online su 3 piattaforme con massima visibilità e ottimizzazione SEO.</p>
+                            </div>
+                        </div>
+                        <div class="step-image">
+                            <img src="images/foto per COME FUNZIONA/Step 3.jpg" alt="Strategia di gestione completa">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Risultati -->
+                <div class="transformation-step step-reverse results-step">
+                    <div class="step-badge">
+                        <span class="step-number">4</span>
+                        <span class="step-label">SETTIMANA 4</span>
+                    </div>
+                    <div class="step-content-wrapper">
+                        <div class="step-image">
+                            <img src="images/foto per COME FUNZIONA/Step4.jpg" alt="Risultati straordinari - Prima settimana completa">
+                        </div>
+                        <div class="step-text">
+                            <h3>Il Risultato: Prima Settimana Completa!</h3>
+                            <p class="step-description">Dopo solo 7 giorni online, ecco cosa è successo:</p>
+                            <div class="results-grid">
+                                <div class="result-card">
+                                    <div class="result-number">12</div>
+                                    <div class="result-label">Richieste di Prenotazione</div>
+                                </div>
+                                <div class="result-card">
+                                    <div class="result-number">7</div>
+                                    <div class="result-label">Giorni Prenotati</div>
+                                </div>
+                                <div class="result-card">
+                                    <div class="result-number">+€3.000</div>
+                                    <div class="result-label">Ricavi Generati</div>
+                                </div>
+                                <div class="result-card">
+                                    <div class="result-number">100%</div>
+                                    <div class="result-label">Review a 5 Stelle</div>
+                                </div>
+                            </div>
+                            <div class="step-result success-highlight">
+                                <p><strong>Federico oggi:</strong> "In una sola settimana ho guadagnato più di quanto facevo in un mese intero prima. Il calendario è pieno per i prossimi 2 mesi e io non muovo un dito. Polverino Rentals ha trasformato completamente la mia proprietà."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA Finale Sezione -->
+            <div class="story-cta">
+                <h3>Vuoi gli Stessi Risultati per il Tuo Immobile?</h3>
+                <p>Inizia con una consulenza gratuita come ha fatto Federico. Analizzeremo il tuo immobile e ti mostreremo il suo vero potenziale.</p>
+                <a href="#contatti" class="cta-button">Richiedi la Tua Consulenza Gratuita</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GALLERIA PROPRIETÀ -->
+    <section class="section gallery-section" id="galleria">
+        <div class="container">
+            <div style="margin-bottom: 20px;">
+                <h2 class="section-title">Le Nostre Proprietà</h2>
+            </div>
+            <p class="section-subtitle">Scopri alcune delle proprietà che gestiamo con successo</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/foto appartamenti/ultima.jpg" alt="Magnifica Corte Menconi - Castelfranco di Sotto">
+                    <div class="gallery-overlay">
+                        <h3>Magnifica Corte Menconi</h3>
+                        <p>Castelfranco di Sotto • Oltre 300m² • Giardino e ulivi</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/foto appartamenti/assago.jpg" alt="Appartamento Moderno - Assago Milano">
+                    <div class="gallery-overlay">
+                        <h3>Appartamento Moderno</h3>
+                        <p>Assago Milano • 2 camere • Vicino Forum e Metro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE SOLUZIONE -->
+    <section class="section solution-section" id="servizi" style="margin-top: 80px;">
+        <div class="container">
+            <div style="margin-bottom: 20px;">
+                <h2 class="section-title">La Nostra Soluzione Completa</h2>
+            </div>
+            <p class="section-subtitle">Un servizio chiavi in mano che ti libera da ogni preoccupazione e massimizza i tuoi guadagni</p>
+
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-number">1</div>
+                    <h3>Revenue Management Avanzato</h3>
+                    <p>Ottimizziamo i prezzi in tempo reale basandoci su domanda, stagionalità ed eventi locali. Il risultato? Più prenotazioni a tariffe più alte.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-number">2</div>
+                    <h3>Gestione Ospiti 24/7</h3>
+                    <p>Ci occupiamo di comunicazioni, check-in, check-out e assistenza ospiti h24. Tu non dovrai fare nulla, nemmeno rispondere a una chiamata.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-number">3</div>
+                    <h3>Manutenzione e Pulizie</h3>
+                    <p>Coordiniamo pulizie professionali dopo ogni soggiorno e gestiamo la manutenzione ordinaria e straordinaria con fornitori di fiducia.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-number">4</div>
+                    <h3>Marketing Multi-Canale</h3>
+                    <p>Promuoviamo il tuo immobile su Airbnb, Booking, Vrbo e altri canali, con foto professionali e descrizioni ottimizzate per convertire.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-number">5</div>
+                    <h3>Reportistica Trasparente</h3>
+                    <p>Ricevi report mensili dettagliati con entrate, spese e performance. Tutto tracciato, tutto chiaro, zero sorprese.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-number">6</div>
+                    <h3>Protezione della Proprietà</h3>
+                    <p>Screening accurato degli ospiti, assicurazioni complete e gestione professionale per proteggere il tuo investimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section faq-section">
+        <div class="container">
+            <h2 class="section-title">Domande Frequenti</h2>
+            <p class="section-subtitle">Risposte alle domande più comuni dei proprietari</p>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quanto costa il vostro servizio?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Il nostro compenso è una percentuale sui guadagni generati dal tuo immobile. In questo modo, siamo allineati con i tuoi obiettivi: più guadagni tu, più guadagniamo noi. Non ci sono costi fissi mensili o spese nascoste. Contattaci per un preventivo personalizzato.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quanto tempo ci vuole per iniziare?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Dopo la consulenza iniziale, possiamo preparare e pubblicare il tuo immobile in 7-10 giorni. Questo include servizio fotografico professionale, allestimento degli annunci su tutte le piattaforme e setup di tutti i sistemi di gestione.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Posso mantenere il controllo della mia proprietà?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Assolutamente sì. Tu rimani sempre il proprietario e mantieni il controllo totale. Puoi bloccare date per uso personale, visitare la proprietà quando vuoi e ricevi report dettagliati mensili. Noi gestiamo le operazioni quotidiane, ma le decisioni importanti sono sempre tue.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Come proteggete la mia proprietà dai danni?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Implementiamo un sistema multi-livello: screening accurato di tutti gli ospiti, cauzione obbligatoria, assicurazione completa contro danni, ispezioni dopo ogni soggiorno e sistema di video-sorveglianza esterna. In caso di danni, gestiamo tutto noi incluse le richieste di risarcimento.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quanto posso realmente guadagnare?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Dipende da molti fattori: posizione, dimensione, stagione e qualità dell'immobile. In media, i nostri clienti vedono un aumento del 30-40% rispetto alla gestione autonoma. Durante la consulenza gratuita, ti forniamo una stima precisa basata sui dati reali di mercato della tua zona.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Posso recedere dal contratto?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sì, offriamo contratti flessibili con preavviso di 30-60 giorni. Non crediamo in vincoli a lungo termine: se non sei soddisfatto del servizio, puoi interrompere la collaborazione. La nostra missione è che tu voglia rimanere con noi per i risultati, non per obbligo contrattuale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE RECENSIONI -->
+    <section class="section reviews-section" id="recensioni">
+        <div class="container">
+            <h2 class="section-title">Cosa Dicono i Nostri Proprietari</h2>
+            <p class="section-subtitle">La soddisfazione dei nostri clienti è la nostra migliore referenza</p>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="quote-mark">"</div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Prima gestivo tutto da solo e il mio appartamento rendeva circa 15.000€ l'anno. Dopo 6 mesi con Polverino Rentals siamo arrivati a 22.000€, e io non devo più fare assolutamente nulla. Avrei dovuto farlo anni fa!</p>
+                    <div class="review-author">Marco R.</div>
+                    <div class="review-role">Appartamento 75mq, Centro Storico Firenze • Cliente da 8 mesi</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="quote-mark">"</div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Finalmente posso godermi le vacanze senza pensare alle prenotazioni. Il servizio è impeccabile, i pagamenti arrivano puntuali e la comunicazione è sempre chiara. Non tornerei mai a gestire da solo.</p>
+                    <div class="review-author">Silvia M.</div>
+                    <div class="review-role">Villa 150mq, Versilia • Cliente da 1 anno</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="quote-mark">"</div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Quando ho ereditato l'appartamento dei miei genitori non sapevo da dove iniziare. Polverino Rentals si è occupato di tutto: dalle foto ai mobili, dalla promozione alla gestione. Ora è una fonte di reddito stabile e affidabile.</p>
+                    <div class="review-author">Andrea T.</div>
+                    <div class="review-role">Bilocale 55mq, Bologna Centro • Cliente da 5 mesi</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="quote-mark">"</div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Professionalità al top. Ogni mese ricevo un report dettagliato con tutte le entrate e le uscite. La mia proprietà è sempre in ordine perfetto e gli ospiti lasciano recensioni eccellenti. Servizio che vale ogni centesimo.</p>
+                    <div class="review-author">Francesca L.</div>
+                    <div class="review-role">Attico 120mq, Milano Porta Romana • Cliente da 2 anni</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="quote-mark">"</div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Ho provato altre agenzie prima, ma nessuna è paragonabile a Polverino Rentals. La differenza sta nell'attenzione ai dettagli e nella disponibilità. Quando ho bisogno di qualcosa, rispondono sempre in pochi minuti.</p>
+                    <div class="review-author">Roberto P.</div>
+                    <div class="review-role">Casa Vacanze 90mq, Cinque Terre • Cliente da 10 mesi</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="quote-mark">"</div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Avevo paura di affidare il mio immobile a terzi, ma è stata la decisione migliore che potessi prendere. La proprietà rende il doppio e io ho recuperato il mio tempo libero. Consigliatissimo!</p>
+                    <div class="review-author">Davide S.</div>
+                    <div class="review-role">Trilocale 85mq, Firenze San Lorenzo • Cliente da 6 mesi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="section contact-form-section" id="contatti">
+        <div class="container">
+            <h2 class="section-title">Richiedi una Consulenza Gratuita</h2>
+            <p class="section-subtitle">Compila il form e ti contatteremo entro 24 ore per analizzare il potenziale del tuo immobile</p>
+
+            <div class="form-container">
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="nome">Nome e Cognome *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Telefono *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="citta">Città dell'Immobile *</label>
+                        <input type="text" id="citta" name="citta" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo">Tipo di Immobile *</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="">Seleziona...</option>
+                            <option value="appartamento">Appartamento</option>
+                            <option value="villa">Villa</option>
+                            <option value="attico">Attico</option>
+                            <option value="casa-indipendente">Casa Indipendente</option>
+                            <option value="altro">Altro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="messaggio">Come possiamo aiutarti?</label>
+                        <textarea id="messaggio" name="messaggio" rows="5"></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button form-submit">Invia Richiesta</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE CTA FINALE -->
+    <section class="final-cta-section">
+        <div class="final-cta-content">
+            <h2>Pronto a Massimizzare il Rendimento del Tuo Immobile?</h2>
+            <p>Garantiamo l'aumento dei tuoi guadagni dal 25% al 50% in più oppure non verremo pagati! Inizia con una consulenza gratuita e senza impegno.</p>
+            <a href="#contatti" class="cta-button">Richiedi la Tua Consulenza Gratuita</a>
+            <div class="guarantee-badge">✓ Garanzia: +25-50% di guadagni o non ci paghi • ✓ Consulenza gratuita e senza impegno • ✓ Risposta entro 24h</div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content container">
+            <div class="footer-section">
+                <h3>Polverino Rentals</h3>
+                <p>Gestiamo la tua proprietà come se fosse nostra, massimizzando i profitti e minimizzando le preoccupazioni.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Servizi</h3>
+                <a href="#servizi">Property Management</a>
+                <a href="#servizi">Revenue Management</a>
+                <a href="#servizi">Gestione Ospiti</a>
+                <a href="#servizi">Marketing Immobiliare</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contatti</h3>
+                <p>Email: info@polverinorentals.com</p>
+                <p>Telefono: +39 378 065 0807</p>
+                <p>Orari: Lun-Ven 9:00-18:00</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Link Utili</h3>
+                <a href="#come-funziona">Come Funziona</a>
+                <a href="#recensioni">Recensioni</a>
+                <a href="#contatti">Contattaci</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Polverino Rentals - Property Management Professionale. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const wasActive = faqItem.classList.contains('active');
+
+            // Chiudi tutte le FAQ
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Apri quella cliccata se non era già aperta
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+
+            // Qui puoi integrare con il tuo backend o servizio email
+            console.log('Form data:', data);
+
+            // Mostra messaggio di successo
+            alert('Grazie per la tua richiesta! Ti contatteremo entro 24 ore.');
+
+            // Reset form
+            event.target.reset();
+
+            // In produzione, sostituisci con chiamata API:
+            // fetch('/api/contact', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(data)
+            // }).then(response => response.json())
+            //   .then(data => console.log(data));
+        }
+
+        // Smooth scroll per i link di navigazione
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

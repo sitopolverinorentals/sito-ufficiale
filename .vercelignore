@@ -1,0 +1,6 @@
+# Ignore local Vercel files and common build output
+.vercel/
+node_modules/
+dist/
+build/
+*.log
