@@ -85,6 +85,81 @@
             color: var(--gold);
         }
 
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .hamburger-menu span {
+            width: 28px;
+            height: 3px;
+            background-color: var(--primary-blue);
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .nav {
+                position: fixed;
+                top: 79px;
+                right: -100%;
+                width: 280px;
+                height: calc(100vh - 79px);
+                background: var(--white);
+                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav.active {
+                right: 0;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid var(--medium-gray);
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 18px 30px;
+                font-size: 1.1rem;
+            }
+
+            .nav-links a:hover {
+                background: var(--light-gray);
+            }
+        }
+
         .hero {
             background: linear-gradient(135deg, var(--primary-blue) 0%, #1a3a5f 100%);
             color: var(--white);
@@ -1782,7 +1857,15 @@
             <div class="logo">
                 <img src="images/logo.png" alt="Polverino Rentals">
             </div>
-            <nav>
+
+            <!-- Hamburger Menu Button (Mobile) -->
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav" id="navMenu">
                 <ul class="nav-links">
                     <li><a href="#servizi">Servizi</a></li>
                     <li><a href="#come-funziona">Come Funziona</a></li>
@@ -2446,6 +2529,34 @@
                 alert('Si è verificato un errore. Riprova più tardi.');
             });
         }
+
+        // Hamburger Menu Toggle
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburgerMenu.addEventListener('click', function() {
+            hamburgerMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Chiudi menu quando si clicca su un link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburgerMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Chiudi menu quando si clicca fuori
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navMenu.contains(event.target);
+            const isClickOnHamburger = hamburgerMenu.contains(event.target);
+
+            if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                hamburgerMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
 
         // Smooth scroll per i link di navigazione
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
