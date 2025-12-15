@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore Redditività Immobile - Polverino Rentals</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0a2540;
+            --white: #ffffff;
+            --light-gray: #f8f9fb;
+            --medium-gray: #e5e8eb;
+            --gold: #d4af37;
+            --dark-gold: #b8961f;
+            --text-gray: #4a5568;
+            --success-green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--white);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--medium-gray);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+        }
+
+        @media (max-width: 768px) {
+            .logo img {
+                height: 50px;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Calculator Section */
+        .hero-calculator {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a3a5f 100%);
+            color: var(--white);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-calculator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-calculator .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            padding-right: 40px;
+        }
+
+        .hero-calculator h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero-calculator .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .hero-features {
+            margin-top: 40px;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .hero-feature-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        /* Calculator Card */
+        .calculator-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .calculator-card h2 {
+            color: var(--primary-blue);
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* Step Indicator */
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--medium-gray);
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-number {
+            background: var(--gold);
+            color: var(--primary-blue);
+        }
+
+        .step.completed .step-number {
+            background: var(--success-green);
+            color: var(--white);
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .step.active .step-label {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .step-divider {
+            width: 50px;
+            height: 2px;
+            background: var(--medium-gray);
+        }
+
+        /* Form Steps */
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeSlideIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .step-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-back {
+            flex: 1;
+            background: var(--medium-gray);
+            color: var(--primary-blue);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--text-gray);
+            color: var(--white);
+        }
+
+        .btn-next {
+            flex: 2;
+            background: var(--gold);
+            color: var(--primary-blue);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-next:hover {
+            background: var(--dark-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 1.05rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            margin-bottom: 0;
+        }
+
+        .calculate-button {
+            width: 100%;
+            background-color: var(--gold);
+            color: var(--primary-blue);
+            padding: 18px 45px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            cursor: pointer;
+        }
+
+        .calculate-button:hover {
+            background-color: var(--dark-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 100px 20px;
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 70px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 5px solid var(--gold);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+        /* Why Choose Section */
+        .why-choose-section {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .feature-content p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a3a5f 100%);
+            color: var(--white);
+            padding: 80px 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .stat-item p {
+            font-size: 1.15rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #051827;
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-calculator {
+                min-height: auto;
+                padding: 60px 20px;
+            }
+
+            .hero-calculator .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content {
+                padding-right: 0;
+            }
+
+            .hero-calculator h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-calculator .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .calculator-card {
+                padding: 30px 20px;
+            }
+
+            .step-indicator {
+                gap: 10px;
+            }
+
+            .step-label {
+                display: none;
+            }
+
+            .step-divider {
+                width: 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Polverino Rentals">
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Calculator Section -->
+    <section class="hero-calculator">
+        <div class="container">
+            <!-- Left Column: Hero Content -->
+            <div class="hero-content">
+                <h1>Quanto può rendere il tuo Immobile a Verona?</h1>
+                <p class="subtitle">Scopri il vero potenziale del tuo appartamento a Verona con gli affitti brevi turistici</p>
+
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">✓</span>
+                        <span>Stima basata sui dati reali del mercato di Verona</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">✓</span>
+                        <span>Consulenza gratuita con esperto locale</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">✓</span>
+                        <span>Verona: +2.5M turisti all'anno, domanda altissima</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">✓</span>
+                        <span>Garanzia di aumento 25-50% o non ci paghi</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Calculator Form -->
+            <div class="calculator-card">
+                <h2> Calcola il Potenziale del tuo Immobile</h2>
+
+                <!-- Step Indicator -->
+                <div class="step-indicator">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Immobile</div>
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">I Tuoi Dati</div>
+                    </div>
+                </div>
+
+                <form id="calculatorForm">
+                    <!-- Step 1: Dati Immobile -->
+                    <div class="form-step active" id="step1">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="citta">Città dell'Immobile *</label>
+                                <input type="text" id="citta" name="citta" required value="Verona" readonly style="background: #f0f0f0;">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tipo">Tipo di Immobile *</label>
+                                <select id="tipo" name="tipo" required>
+                                    <option value="">Seleziona...</option>
+                                    <option value="monolocale">Monolocale</option>
+                                    <option value="bilocale">Bilocale</option>
+                                    <option value="trilocale">Trilocale</option>
+                                    <option value="appartamento">Appartamento 100mq+</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="attico">Attico</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="camere">N° Camere *</label>
+                                <input type="number" id="camere" name="camere" required min="1" max="10" placeholder="Es. 2">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bagni">N° Bagni *</label>
+                                <input type="number" id="bagni" name="bagni" required min="1" max="5" placeholder="Es. 1">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mq">Metri Quadri *</label>
+                                <input type="number" id="mq" name="mq" required min="20" max="500" placeholder="Es. 75">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="posizione">Posizione a Verona *</label>
+                                <select id="posizione" name="posizione" required>
+                                    <option value="">Seleziona...</option>
+                                    <option value="centro-storico">Centro Storico (Piazza Bra, Arena, Piazza Erbe)</option>
+                                    <option value="semicentro">Semicentro (Borgo Trento, San Zeno)</option>
+                                    <option value="periferia">Periferia</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="step-buttons">
+                            <button type="button" class="btn-next" onclick="nextStep()">Avanti →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Dati Personali -->
+                    <div class="form-step" id="step2">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome *</label>
+                                <input type="text" id="nome" name="nome" required placeholder="Il tuo nome">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cognome">Cognome *</label>
+                                <input type="text" id="cognome" name="cognome" required placeholder="Il tuo cognome">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="tua@email.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefono">Telefono *</label>
+                                <input type="tel" id="telefono" name="telefono" required placeholder="+39 123 456 7890">
+                            </div>
+                        </div>
+
+                        <div class="step-buttons">
+                            <button type="button" class="btn-back" onclick="prevStep()">← Indietro</button>
+                            <button type="submit" class="btn-next">🚀 Calcola il Potenziale</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">I Nostri Servizi a Verona</h2>
+            <p class="section-subtitle">Esperti del mercato veronese, gestiamo ogni aspetto del tuo immobile nel centro storico</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">💰</span>
+                    <h3>Revenue Management</h3>
+                    <p>Ottimizziamo i prezzi in tempo reale basandoci su domanda, stagionalità e grandi eventi a Verona (Arena Opera Festival, Vinitaly, Fieracavalli) per massimizzare i tuoi profitti.</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">📸</span>
+                    <h3>Foto Professionali</h3>
+                    <p>Servizio fotografico di alta qualità che valorizza il tuo immobile e aumenta le prenotazioni fino al 300%.</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">🏠</span>
+                    <h3>Gestione Completa</h3>
+                    <p>Ci occupiamo di tutto: comunicazioni ospiti, check-in/out, pulizie, manutenzione. Tu ricevi solo i pagamenti.</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">📱</span>
+                    <h3>Marketing Multi-Canale</h3>
+                    <p>Promuoviamo il tuo immobile su Airbnb, Booking, Vrbo e altri canali per massima visibilità.</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">🛡️</span>
+                    <h3>Protezione Proprietà</h3>
+                    <p>Screening ospiti, assicurazioni complete e gestione professionale per proteggere il tuo investimento.</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">📊</span>
+                    <h3>Report Trasparenti</h3>
+                    <p>Report mensili dettagliati con entrate, spese e performance. Tutto tracciato, tutto chiaro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose-section">
+        <div class="container">
+            <h2 class="section-title">Perché Scegliere Polverino Rentals a Verona</h2>
+            <p class="section-subtitle">Non siamo una semplice agenzia. Siamo esperti locali e partner nel tuo successo.</p>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <div class="feature-content">
+                        <h3>Garanzia di Risultati</h3>
+                        <p>Garantiamo un aumento dei guadagni dal 25% al 50% o non ci paghi. Siamo così sicuri dei nostri risultati.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <div class="feature-content">
+                        <h3>Assistenza 24/7</h3>
+                        <p>Gli ospiti possono contattarci in qualsiasi momento. Tu non dovrai mai preoccuparti di nulla.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <div class="feature-content">
+                        <h3>Zero Stress</h3>
+                        <p>Gestione completamente hands-off. Tu mantieni il controllo, noi facciamo tutto il lavoro.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <div class="feature-content">
+                        <h3>Trasparenza Totale</h3>
+                        <p>Report dettagliati ogni mese. Sai sempre quanto guadagni e dove vanno i tuoi soldi.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <div class="feature-content">
+                        <h3>Esperienza a Verona</h3>
+                        <p>Oltre 50 proprietà gestite a Verona e provincia con un tasso di soddisfazione del 98%.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <div class="feature-content">
+                        <h3>Pagamenti Garantiti</h3>
+                        <p>Ricevi i tuoi pagamenti puntuali ogni mese, indipendentemente dalle prenotazioni.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>2.5M+</h3>
+                <p>Turisti a Verona ogni anno</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Proprietà gestite a Verona</p>
+            </div>
+            <div class="stat-item">
+                <h3>25-50%</h3>
+                <p>Aumento garantito dei guadagni</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Assistenza ospiti</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Polverino Rentals - Property Management Professionale</p>
+    </footer>
+
+    <script>
+        let currentStep = 1;
+
+        function nextStep() {
+            // Valida i campi dello step corrente
+            const step1 = document.getElementById('step1');
+            const inputs = step1.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value) {
+                    isValid = false;
+                    input.style.borderColor = '#dc2626';
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+
+            if (!isValid) {
+                alert('Compila tutti i campi obbligatori');
+                return;
+            }
+
+            // Passa allo step 2
+            currentStep = 2;
+            updateSteps();
+        }
+
+        function prevStep() {
+            currentStep = 1;
+            updateSteps();
+        }
+
+        function updateSteps() {
+            // Aggiorna indicatori
+            document.querySelectorAll('.step').forEach(step => {
+                const stepNum = parseInt(step.dataset.step);
+                step.classList.remove('active', 'completed');
+
+                if (stepNum === currentStep) {
+                    step.classList.add('active');
+                } else if (stepNum < currentStep) {
+                    step.classList.add('completed');
+                }
+            });
+
+            // Mostra/nascondi form steps
+            document.querySelectorAll('.form-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            document.getElementById('step' + currentStep).classList.add('active');
+        }
+
+        document.getElementById('calculatorForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+
+            // Calcola stima redditività (algoritmo semplificato)
+            const estimates = calculateEstimate(data);
+
+            // Salva i dati nel localStorage per la thank you page
+            localStorage.setItem('calculatorData', JSON.stringify({
+                ...data,
+                ...estimates
+            }));
+
+            // Invia i dati al webhook
+            fetch('https://hook.eu1.make.com/nvj5cnh7fpg78yn9hcmfd93kvzjk3jfz', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ...data,
+                    ...estimates,
+                    tipo_form: 'calcolatore_redditivita'
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Redirect alla thank you page
+                    window.location.href = 'thank-you.html';
+                } else {
+                    alert('Si è verificato un errore. Riprova più tardi.');
+                }
+            })
+            .catch(error => {
+                console.error('Errore:', error);
+                // Anche in caso di errore, mostra i risultati
+                window.location.href = 'thank-you.html';
+            });
+        });
+
+        function calculateEstimate(data) {
+            // Tariffe base per città (€/notte)
+            const cityRates = {
+                'verona': 95,
+                'milano': 120,
+                'roma': 110,
+                'firenze': 100,
+                'venezia': 130,
+                'bologna': 85,
+                'napoli': 80,
+                'torino': 75,
+                'default': 70
+            };
+
+            // Moltiplicatori per tipo
+            const typeMultipliers = {
+                'monolocale': 0.8,
+                'bilocale': 1.0,
+                'trilocale': 1.3,
+                'appartamento': 1.6,
+                'villa': 2.5,
+                'attico': 1.8
+            };
+
+            // Moltiplicatori per posizione
+            const locationMultipliers = {
+                'centro-storico': 1.3,
+                'semicentro': 1.0,
+                'periferia': 0.7,
+                'mare': 1.2,
+                'montagna': 1.1
+            };
+
+            // Calcola tariffa base
+            const cityName = data.citta.toLowerCase();
+            let baseRate = cityRates['default'];
+            for (let city in cityRates) {
+                if (cityName.includes(city)) {
+                    baseRate = cityRates[city];
+                    break;
+                }
+            }
+
+            // Applica moltiplicatori
+            const typeMultiplier = typeMultipliers[data.tipo] || 1;
+            const locationMultiplier = locationMultipliers[data.posizione] || 1;
+
+            // Calcola tariffa per notte
+            const nightlyRate = Math.round(baseRate * typeMultiplier * locationMultiplier);
+
+            // Calcola occupazione media (70%)
+            const avgOccupancy = 0.70;
+            const daysPerMonth = 30;
+            const occupiedDays = Math.round(daysPerMonth * avgOccupancy);
+
+            // Ricavi mensili e annuali
+            const monthlyRevenue = nightlyRate * occupiedDays;
+            const annualRevenue = monthlyRevenue * 12;
+
+            // Con gestione professionale (+35% medio)
+            const professionalIncrease = 1.35;
+            const monthlyWithManagement = Math.round(monthlyRevenue * professionalIncrease);
+            const annualWithManagement = Math.round(annualRevenue * professionalIncrease);
+
+            return {
+                tariffaNotte: nightlyRate,
+                ricavoMensile: monthlyRevenue,
+                ricavoAnnuale: annualRevenue,
+                ricavoMensileConGestione: monthlyWithManagement,
+                ricavoAnnualeConGestione: annualWithManagement,
+                aumentoPercentuale: 35,
+                giorniOccupati: occupiedDays
+            };
+        }
+    </script>
+</body>
+</html>

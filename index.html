@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polverino Rentals - Gestione Professionale della Tua Proprietà</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -36,7 +37,7 @@
 
         .header {
             background-color: var(--white);
-            padding: 20px 0;
+            padding: 12px 0;
             border-bottom: 1px solid var(--medium-gray);
             position: sticky;
             top: 0;
@@ -52,9 +53,19 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+        }
+
+        @media (max-width: 768px) {
+            .logo img {
+                height: 50px;
+            }
         }
 
         .nav-links {
@@ -1768,7 +1779,9 @@
 <body>
     <header class="header">
         <div class="container">
-            <div class="logo">Polverino Rentals</div>
+            <div class="logo">
+                <img src="images/logo.png" alt="Polverino Rentals">
+            </div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#servizi">Servizi</a></li>
@@ -2176,113 +2189,14 @@
             <h2 class="section-title">Cosa Dicono i Nostri Proprietari</h2>
             <p class="section-subtitle">La soddisfazione dei nostri clienti è la nostra migliore referenza</p>
 
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="quote-mark">"</div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Prima gestivo tutto da solo e il mio appartamento rendeva circa 15.000€ l'anno. Dopo 6 mesi con Polverino Rentals siamo arrivati a 22.000€, e io non devo più fare assolutamente nulla. Avrei dovuto farlo anni fa!</p>
-                    <div class="review-author">Marco R.</div>
-                    <div class="review-role">Appartamento 75mq, Centro Storico Firenze • Cliente da 8 mesi</div>
-                </div>
-
-                <div class="review-card">
-                    <div class="quote-mark">"</div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Finalmente posso godermi le vacanze senza pensare alle prenotazioni. Il servizio è impeccabile, i pagamenti arrivano puntuali e la comunicazione è sempre chiara. Non tornerei mai a gestire da solo.</p>
-                    <div class="review-author">Silvia M.</div>
-                    <div class="review-role">Villa 150mq, Versilia • Cliente da 1 anno</div>
-                </div>
-
-                <div class="review-card">
-                    <div class="quote-mark">"</div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Quando ho ereditato l'appartamento dei miei genitori non sapevo da dove iniziare. Polverino Rentals si è occupato di tutto: dalle foto ai mobili, dalla promozione alla gestione. Ora è una fonte di reddito stabile e affidabile.</p>
-                    <div class="review-author">Andrea T.</div>
-                    <div class="review-role">Bilocale 55mq, Bologna Centro • Cliente da 5 mesi</div>
-                </div>
-
-                <div class="review-card">
-                    <div class="quote-mark">"</div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Professionalità al top. Ogni mese ricevo un report dettagliato con tutte le entrate e le uscite. La mia proprietà è sempre in ordine perfetto e gli ospiti lasciano recensioni eccellenti. Servizio che vale ogni centesimo.</p>
-                    <div class="review-author">Francesca L.</div>
-                    <div class="review-role">Attico 120mq, Milano Porta Romana • Cliente da 2 anni</div>
-                </div>
-
-                <div class="review-card">
-                    <div class="quote-mark">"</div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Ho provato altre agenzie prima, ma nessuna è paragonabile a Polverino Rentals. La differenza sta nell'attenzione ai dettagli e nella disponibilità. Quando ho bisogno di qualcosa, rispondono sempre in pochi minuti.</p>
-                    <div class="review-author">Roberto P.</div>
-                    <div class="review-role">Casa Vacanze 90mq, Cinque Terre • Cliente da 10 mesi</div>
-                </div>
-
-                <div class="review-card">
-                    <div class="quote-mark">"</div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Avevo paura di affidare il mio immobile a terzi, ma è stata la decisione migliore che potessi prendere. La proprietà rende il doppio e io ho recuperato il mio tempo libero. Consigliatissimo!</p>
-                    <div class="review-author">Davide S.</div>
-                    <div class="review-role">Trilocale 85mq, Firenze San Lorenzo • Cliente da 6 mesi</div>
-                </div>
+            <div class="reviews-grid" id="reviewsGridDesktop">
+                <!-- Le recensioni verranno caricate dinamicamente da reviews.js -->
             </div>
 
             <!-- Mobile Carousel -->
             <div class="reviews-carousel">
                 <div class="reviews-carousel-inner" id="reviewsCarousel">
-                    <div class="review-card-wrapper active">
-                        <div class="review-card">
-                            <div class="quote-mark">"</div>
-                            <div class="review-stars">★★★★★</div>
-                            <p class="review-text">Prima gestivo tutto da solo e il mio appartamento rendeva circa 15.000€ l'anno. Dopo 6 mesi con Polverino Rentals siamo arrivati a 22.000€, e io non devo più fare assolutamente nulla. Avrei dovuto farlo anni fa!</p>
-                            <div class="review-author">Marco R.</div>
-                            <div class="review-role">Appartamento 75mq, Centro Storico Firenze • Cliente da 8 mesi</div>
-                        </div>
-                    </div>
-                    <div class="review-card-wrapper">
-                        <div class="review-card">
-                            <div class="quote-mark">"</div>
-                            <div class="review-stars">★★★★★</div>
-                            <p class="review-text">Finalmente posso godermi le vacanze senza pensare alle prenotazioni. Il servizio è impeccabile, i pagamenti arrivano puntuali e la comunicazione è sempre chiara. Non tornerei mai a gestire da solo.</p>
-                            <div class="review-author">Silvia M.</div>
-                            <div class="review-role">Villa 150mq, Versilia • Cliente da 1 anno</div>
-                        </div>
-                    </div>
-                    <div class="review-card-wrapper">
-                        <div class="review-card">
-                            <div class="quote-mark">"</div>
-                            <div class="review-stars">★★★★★</div>
-                            <p class="review-text">Quando ho ereditato l'appartamento dei miei genitori non sapevo da dove iniziare. Polverino Rentals si è occupato di tutto: dalle foto ai mobili, dalla promozione alla gestione. Ora è una fonte di reddito stabile e affidabile.</p>
-                            <div class="review-author">Andrea T.</div>
-                            <div class="review-role">Bilocale 55mq, Bologna Centro • Cliente da 5 mesi</div>
-                        </div>
-                    </div>
-                    <div class="review-card-wrapper">
-                        <div class="review-card">
-                            <div class="quote-mark">"</div>
-                            <div class="review-stars">★★★★★</div>
-                            <p class="review-text">Professionalità al top. Ogni mese ricevo un report dettagliato con tutte le entrate e le uscite. La mia proprietà è sempre in ordine perfetto e gli ospiti lasciano recensioni eccellenti. Servizio che vale ogni centesimo.</p>
-                            <div class="review-author">Francesca L.</div>
-                            <div class="review-role">Attico 120mq, Milano Porta Romana • Cliente da 2 anni</div>
-                        </div>
-                    </div>
-                    <div class="review-card-wrapper">
-                        <div class="review-card">
-                            <div class="quote-mark">"</div>
-                            <div class="review-stars">★★★★★</div>
-                            <p class="review-text">Ho provato altre agenzie prima, ma nessuna è paragonabile a Polverino Rentals. La differenza sta nell'attenzione ai dettagli e nella disponibilità. Quando ho bisogno di qualcosa, rispondono sempre in pochi minuti.</p>
-                            <div class="review-author">Roberto P.</div>
-                            <div class="review-role">Casa Vacanze 90mq, Cinque Terre • Cliente da 10 mesi</div>
-                        </div>
-                    </div>
-                    <div class="review-card-wrapper">
-                        <div class="review-card">
-                            <div class="quote-mark">"</div>
-                            <div class="review-stars">★★★★★</div>
-                            <p class="review-text">Avevo paura di affidare il mio immobile a terzi, ma è stata la decisione migliore che potessi prendere. La proprietà rende il doppio e io ho recuperato il mio tempo libero. Consigliatissimo!</p>
-                            <div class="review-author">Davide S.</div>
-                            <div class="review-role">Trilocale 85mq, Firenze San Lorenzo • Cliente da 6 mesi</div>
-                        </div>
-                    </div>
+                    <!-- Le recensioni verranno caricate dinamicamente da reviews.js -->
                 </div>
                 <div class="carousel-controls">
                     <button class="carousel-arrow" id="prevReview">❮</button>
@@ -2389,7 +2303,20 @@
         </div>
     </footer>
 
+    <script src="reviews.js"></script>
     <script>
+        // Carica le recensioni al caricamento della pagina
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carica recensioni desktop
+            renderReviewsWithQuote('reviewsGridDesktop');
+
+            // Carica recensioni mobile carousel
+            renderMobileCarousel('reviewsCarousel');
+
+            // Inizializza il carousel
+            initReviewsCarousel();
+        });
+
         // Reviews Carousel
         let currentReview = 0;
         let reviewAutoplayInterval;

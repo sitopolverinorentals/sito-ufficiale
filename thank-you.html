@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Tuoi Risultati - Polverino Rentals</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0a2540;
+            --white: #ffffff;
+            --light-gray: #f8f9fb;
+            --medium-gray: #e5e8eb;
+            --gold: #d4af37;
+            --dark-gold: #b8961f;
+            --text-gray: #4a5568;
+            --success-green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e8ecf0 100%);
+            color: var(--primary-blue);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .thank-you-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .success-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 0;
+        }
+
+        /* Results Grid */
+        .results-section {
+            margin-bottom: 40px;
+        }
+
+        .results-title {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .results-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .result-box {
+            background: var(--white);
+            padding: 15px 25px;
+            border-radius: 12px;
+            border: 1px solid var(--medium-gray);
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .result-label {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .result-value {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .result-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+
+        /* Comparison Section */
+        .comparison-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.15);
+            margin-bottom: 40px;
+            border: 3px solid var(--success-green);
+        }
+
+        .comparison-title {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .comparison-item {
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-item.before {
+            background: var(--white);
+            border: 2px solid var(--medium-gray);
+        }
+
+        .comparison-item.after {
+            background: var(--white);
+            border: 3px solid var(--success-green);
+        }
+
+        .comparison-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .comparison-value {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .comparison-item.before .comparison-value {
+            color: var(--text-gray);
+        }
+
+        .comparison-item.after .comparison-value {
+            color: var(--success-green);
+        }
+
+        .increase-badge {
+            display: inline-block;
+            background: var(--success-green);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-top: 10px;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Property Info */
+        .property-info {
+            background: var(--light-gray);
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .property-info h3 {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-icon {
+            font-size: 1.2rem;
+        }
+
+        .info-text {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .info-text strong {
+            color: var(--primary-blue);
+            display: inline;
+            font-size: 0.9rem;
+            margin-right: 5px;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 60px 20px;
+            background: var(--light-gray);
+        }
+
+        .reviews-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 35px 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-stars {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .review-author strong {
+            color: var(--primary-blue);
+            font-size: 1.05rem;
+        }
+
+        .review-author span {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a3a5f 100%);
+            color: var(--white);
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(10, 37, 64, 0.2);
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--primary-blue);
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: var(--dark-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-info a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .thank-you-card {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .results-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .result-value {
+                font-size: 2rem;
+            }
+
+            .comparison-value {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Thank You Card -->
+        <div class="thank-you-card">
+            <div class="success-icon">✅</div>
+            <h1>Grazie, <span id="userName"></span>!</h1>
+            <p class="subtitle">Abbiamo calcolato il potenziale del tuo immobile</p>
+        </div>
+
+        <!-- Comparison Card - PRIMA SEZIONE PIU' IMPORTANTE -->
+        <div class="comparison-card">
+            <h2 class="comparison-title">🚀 Il Tuo Potenziale con Polverino Rentals</h2>
+
+            <div class="comparison-grid">
+                <div class="comparison-item before">
+                    <h3>❌ Gestione Autonoma</h3>
+                    <div class="comparison-value">€<span id="beforeAnnual"></span></div>
+                    <div>all'anno</div>
+                </div>
+
+                <div class="comparison-item after">
+                    <h3>✅ Con Polverino Rentals</h3>
+                    <div class="comparison-value">€<span id="afterAnnual"></span></div>
+                    <div>all'anno</div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <div class="increase-badge">
+                    +€<span id="extraIncome"></span>/anno (+<span id="increasePercentage"></span>%)
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section - Dettagli compatti -->
+        <div class="results-section">
+            <h2 class="results-title">📊 Dettagli Calcolo</h2>
+            <div class="results-grid">
+                <div class="result-box">
+                    <div class="result-label">Tariffa Notte</div>
+                    <div class="result-value">€<span id="tariffaNotte"></span></div>
+                </div>
+                <div class="result-box">
+                    <div class="result-label">Occupazione</div>
+                    <div class="result-value"><span id="giorniOccupati"></span> gg</div>
+                </div>
+                <div class="result-box">
+                    <div class="result-label">Mensile</div>
+                    <div class="result-value">€<span id="ricavoMensile"></span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Property Info - In fondo -->
+        <div class="property-info">
+            <h3>📍 Riepilogo: <strong id="propCitta"></strong> • <strong id="propTipo"></strong> • <strong id="propMq"></strong> • <strong id="propCamere"></strong></h3>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2>💬 Cosa Dicono i Nostri Proprietari</h2>
+            <div class="reviews-grid" id="reviewsContainer"></div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Vuoi Trasformare Questi Numeri in Realtà?</h2>
+            <p>Ti contatteremo entro 24 ore per una consulenza gratuita personalizzata</p>
+            <a href="index.html" class="cta-button">Torna alla Home</a>
+
+            <div class="contact-info">
+                <p>Oppure chiamaci ora: <a href="tel:+393780650807">+39 378 065 0807</a></p>
+                <p>Email: <a href="mailto:info@polverinorentals.com">info@polverinorentals.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="reviews.js"></script>
+    <script>
+        // Recupera i dati dal localStorage
+        const data = JSON.parse(localStorage.getItem('calculatorData'));
+
+        if (data) {
+            // Dati personali
+            document.getElementById('userName').textContent = data.nome;
+
+            // Confronto - SEZIONE PRINCIPALE
+            document.getElementById('beforeAnnual').textContent = formatNumber(data.ricavoAnnuale);
+            document.getElementById('afterAnnual').textContent = formatNumber(data.ricavoAnnualeConGestione);
+
+            const extraIncome = data.ricavoAnnualeConGestione - data.ricavoAnnuale;
+            document.getElementById('extraIncome').textContent = formatNumber(extraIncome);
+            document.getElementById('increasePercentage').textContent = data.aumentoPercentuale;
+
+            // Risultati dettaglio
+            document.getElementById('tariffaNotte').textContent = data.tariffaNotte;
+            document.getElementById('giorniOccupati').textContent = data.giorniOccupati;
+            document.getElementById('ricavoMensile').textContent = formatNumber(data.ricavoMensile);
+
+            // Info proprietà - Riepilogo compatto
+            const allPropCitta = document.querySelectorAll('#propCitta');
+            const allPropTipo = document.querySelectorAll('#propTipo');
+            const allPropMq = document.querySelectorAll('#propMq');
+            const allPropCamere = document.querySelectorAll('#propCamere');
+
+            allPropCitta.forEach(el => el.textContent = data.citta);
+            allPropTipo.forEach(el => el.textContent = capitalizeFirst(data.tipo));
+            allPropMq.forEach(el => el.textContent = data.mq + ' mq');
+            allPropCamere.forEach(el => el.textContent = data.camere + 'cam / ' + data.bagni + 'bagni');
+        } else {
+            // Se non ci sono dati, redirect al calcolatore
+            window.location.href = 'calcolatore-redditivita.html';
+        }
+
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        function capitalizeFirst(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1).replace('-', ' ');
+        }
+
+        // Carica le recensioni
+        document.addEventListener('DOMContentLoaded', function() {
+            renderReviews('reviewsContainer');
+        });
+    </script>
+</body>
+</html>
