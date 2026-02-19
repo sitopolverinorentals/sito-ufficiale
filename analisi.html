@@ -168,20 +168,27 @@ h1, h2, h3, h4 {
 }
 
 .hero .container {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 60px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 24px;
+    font-size: 3.6rem;
+    margin-bottom: 28px;
     color: var(--cream);
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 .hero h1 span {
     color: var(--gold);
+}
+
+.hero-text {
+    max-width: 850px;
 }
 
 .hero-guarantee {
@@ -194,6 +201,7 @@ h1, h2, h3, h4 {
     border-radius: var(--radius-sm);
     background: rgba(240,208,144,0.06);
     line-height: 1.6;
+    text-align: center;
 }
 
 .hero-sub {
@@ -201,11 +209,14 @@ h1, h2, h3, h4 {
     color: var(--muted);
     margin-bottom: 32px;
     line-height: 1.8;
+    text-align: center;
 }
 
 .hero-bullets {
     list-style: none;
     margin-bottom: 36px;
+    display: inline-block;
+    text-align: left;
 }
 
 .hero-bullets li {
@@ -259,6 +270,8 @@ h1, h2, h3, h4 {
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--glow);
+    max-width: 350px;
+    margin-top: 40px;
 }
 
 .hero-visual img {
@@ -617,20 +630,38 @@ h1, h2, h3, h4 {
     max-height: 300px;
 }
 
-/* ---------- Section: Form ---------- */
+/* ---------- Section: Form + Calendly ---------- */
 .section-form {
     background: linear-gradient(170deg, var(--navy-2) 0%, var(--navy) 100%);
     border-top: 1px solid rgba(240,208,144,0.08);
 }
 
+.form-calendly-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
 .form-card {
-    max-width: 700px;
-    margin: 0 auto;
     background: rgba(240,208,144,0.03);
     border: 1px solid rgba(240,208,144,0.15);
     border-radius: var(--radius);
-    padding: 48px 40px;
+    padding: 36px 32px;
     box-shadow: var(--glow);
+}
+
+.calendly-card {
+    background: rgba(240,208,144,0.03);
+    border: 1px solid rgba(240,208,144,0.15);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    box-shadow: var(--glow);
+    overflow: hidden;
+}
+
+.calendly-card .calendly-inline-widget {
+    border-radius: var(--radius-sm);
 }
 
 .form-subtitle {
@@ -957,21 +988,16 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 768px) {
-    .hero .container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
     .hero {
         padding: 130px 0 70px;
     }
 
     .hero h1 {
-        font-size: 2.1rem;
+        font-size: 2.4rem;
     }
 
     .hero-visual {
-        max-width: 100%;
+        max-width: 280px;
     }
 
     .filter-grid {
@@ -986,6 +1012,10 @@ h1, h2, h3, h4 {
         grid-template-columns: 1fr;
     }
 
+    .form-calendly-grid {
+        grid-template-columns: 1fr;
+    }
+
     .form-row {
         grid-template-columns: 1fr;
         gap: 0;
@@ -993,6 +1023,10 @@ h1, h2, h3, h4 {
 
     .form-card {
         padding: 32px 20px;
+    }
+
+    .calendly-card {
+        padding: 24px 16px;
     }
 
     .case-card {
@@ -1035,7 +1069,7 @@ h1, h2, h3, h4 {
 
 @media (max-width: 480px) {
     .hero h1 {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
 
     .process-grid {
@@ -1065,7 +1099,7 @@ h1, h2, h3, h4 {
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-text">
-                <h1>Aumentiamo la rendita del tuo appartamento a Verona del <span>25&ndash;40%</span> rispetto all'affitto tradizionale.</h1>
+                <h1>Rendita del tuo immobile <span>+25&ndash;40%</span></h1>
                 <p class="hero-guarantee">Se non aumentiamo la tua rendita, lavoriamo gratis fino a quando il tuo immobile non va in profitto.</p>
                 <p class="hero-sub">Caso reale: un bilocale in centro storico ha generato oltre <strong>65.000&euro;</strong> di prenotazioni. Richiedi un'analisi manuale personalizzata (non automatica) per capire il potenziale del tuo immobile.</p>
                 <ul class="hero-bullets">
@@ -1248,136 +1282,62 @@ h1, h2, h3, h4 {
         </div>
     </section>
 
-    <!-- ========== FORM ========== -->
+    <!-- ========== CONTATTI + CALENDLY ========== -->
     <section class="section-form section-padding" id="analisi">
         <div class="container">
             <h2 class="section-title">Richiedi l'Analisi Personalizzata</h2>
-            <div class="form-card">
-                <p class="form-subtitle">Compila solo se sei proprietario e vuoi attivare entro 90 giorni.</p>
+            <div class="form-calendly-grid">
 
-                <form id="leadForm" novalidate>
+                <!-- Form contatto -->
+                <div class="form-card">
+                    <p class="form-subtitle">Lascia i tuoi dati e ti ricontattiamo noi.</p>
 
-                    <!-- Nome + Telefono -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nome">Nome e Cognome *</label>
-                            <input type="text" id="nome" name="nome" required placeholder="Mario Rossi" autocomplete="name">
-                            <span class="error-text">Inserisci nome e cognome</span>
+                    <form id="leadForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome *</label>
+                                <input type="text" id="nome" name="nome" required placeholder="Il tuo nome" autocomplete="given-name">
+                                <span class="error-text">Inserisci il nome</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cognome">Cognome *</label>
+                                <input type="text" id="cognome" name="cognome" required placeholder="Il tuo cognome" autocomplete="family-name">
+                                <span class="error-text">Inserisci il cognome</span>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="telefono">Telefono *</label>
-                            <input type="tel" id="telefono" name="telefono" required placeholder="+39 333 123 4567" autocomplete="tel">
-                            <span class="error-text">Inserisci un numero valido (min 8 cifre)</span>
-                        </div>
-                    </div>
 
-                    <!-- Email -->
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="mario@email.com" autocomplete="email">
-                        <span class="error-text">Inserisci un'email valida</span>
-                    </div>
-
-                    <!-- Proprietario -->
-                    <div class="form-group">
-                        <label id="propSi">Sei proprietario dell'immobile? *</label>
-                        <div class="radio-group" role="radiogroup" aria-labelledby="propSi">
-                            <label class="radio-label">
-                                <input type="radio" name="proprietario" value="si" required> Sì
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="proprietario" value="no"> No
-                            </label>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="tua@email.com" autocomplete="email">
+                                <span class="error-text">Inserisci un'email valida</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Telefono *</label>
+                                <input type="tel" id="telefono" name="telefono" required placeholder="+39 123 456 7890" autocomplete="tel">
+                                <span class="error-text">Inserisci un numero valido (min 8 cifre)</span>
+                            </div>
                         </div>
-                        <span class="error-text">Seleziona una risposta</span>
-                        <div class="gate-message" id="gateOwner">Questo servizio è riservato ai proprietari di immobili. Se non sei ancora proprietario, ti consigliamo di ricontattarci quando avrai un immobile disponibile.</div>
-                    </div>
 
-                    <!-- Comune + Tipologia -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="comune">Comune / Zona immobile *</label>
-                            <input type="text" id="comune" name="comune" required placeholder="Es. Verona centro, San Zeno...">
-                            <span class="error-text">Inserisci il comune/zona</span>
+                        <!-- Privacy -->
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">Acconsento al trattamento dei dati personali ai sensi del GDPR. *</label>
                         </div>
-                        <div class="form-group">
-                            <label for="tipologia">Tipologia immobile *</label>
-                            <select id="tipologia" name="tipologia" required>
-                                <option value="">Seleziona...</option>
-                                <option value="monolocale">Monolocale</option>
-                                <option value="bilocale">Bilocale</option>
-                                <option value="trilocale">Trilocale</option>
-                                <option value="altro">Altro</option>
-                            </select>
-                            <span class="error-text">Seleziona la tipologia</span>
-                        </div>
-                    </div>
 
-                    <!-- Stato + Reddito -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="stato">Stato immobile *</label>
-                            <select id="stato" name="stato" required>
-                                <option value="">Seleziona...</option>
-                                <option value="libero">Libero</option>
-                                <option value="affitto_tradizionale">Affitto tradizionale</option>
-                                <option value="gia_airbnb">Già su Airbnb / Booking</option>
-                                <option value="ristrutturazione">In ristrutturazione</option>
-                            </select>
-                            <span class="error-text">Seleziona lo stato</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="reddito">Reddito mensile attuale stimato *</label>
-                            <select id="reddito" name="reddito" required>
-                                <option value="">Seleziona...</option>
-                                <option value="0-500">0 &ndash; 500&euro;</option>
-                                <option value="500-1000">500 &ndash; 1.000&euro;</option>
-                                <option value="1000-1500">1.000 &ndash; 1.500&euro;</option>
-                                <option value="1500+">1.500&euro;+</option>
-                                <option value="non_so">Non so</option>
-                            </select>
-                            <span class="error-text">Seleziona il reddito stimato</span>
-                        </div>
-                    </div>
+                        <!-- Submit -->
+                        <button type="submit" class="btn-submit" id="submitBtn">Invia richiesta</button>
+                        <p class="form-footer-text">Rispondiamo entro 24&ndash;48 ore lavorative.</p>
+                    </form>
+                </div>
 
-                    <!-- Tempistica + Disponibilità -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="tempistica">Tempistica attivazione *</label>
-                            <select id="tempistica" name="tempistica" required>
-                                <option value="">Seleziona...</option>
-                                <option value="subito">Subito (0&ndash;30 giorni)</option>
-                                <option value="1-3_mesi">1&ndash;3 mesi</option>
-                                <option value="3-6_mesi">3&ndash;6 mesi</option>
-                                <option value="solo_informativo">Solo informativo</option>
-                            </select>
-                            <span class="error-text">Seleziona la tempistica</span>
-                            <div class="gate-message" id="gateTiming">Al momento accettiamo solo proprietari pronti ad attivare. Ti consigliamo di ricontattarci quando sarai pronto a partire.</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="disponibilita">Disponibilità per una call *</label>
-                            <select id="disponibilita" name="disponibilita" required>
-                                <option value="">Seleziona...</option>
-                                <option value="mattina">Mattina</option>
-                                <option value="pomeriggio">Pomeriggio</option>
-                                <option value="sera">Sera</option>
-                                <option value="weekend">Weekend</option>
-                            </select>
-                            <span class="error-text">Seleziona la disponibilità</span>
-                        </div>
-                    </div>
+                <!-- Calendly embedded -->
+                <div class="calendly-card">
+                    <p class="form-subtitle">Oppure prenota direttamente una call.</p>
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/polverinorentals/30min?hide_gdpr_banner=1" style="min-width:300px;height:580px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                </div>
 
-                    <!-- Privacy -->
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="privacy" name="privacy" required>
-                        <label for="privacy">Acconsento al trattamento dei dati personali ai sensi del GDPR. *</label>
-                    </div>
-
-                    <!-- Submit -->
-                    <button type="submit" class="btn-submit" id="submitBtn">Invia richiesta</button>
-                    <p class="form-footer-text">Rispondiamo entro 24&ndash;48 ore lavorative.</p>
-
-                </form>
             </div>
         </div>
     </section>
@@ -1447,46 +1407,9 @@ h1, h2, h3, h4 {
         });
     });
 
-    /* ---------- Lead gating ---------- */
+    /* ---------- Form ---------- */
     var form = document.getElementById('leadForm');
     var submitBtn = document.getElementById('submitBtn');
-    var gateOwner = document.getElementById('gateOwner');
-    var gateTiming = document.getElementById('gateTiming');
-
-    function checkGating() {
-        var ownerNo = document.querySelector('input[name="proprietario"][value="no"]');
-        var timingSelect = document.getElementById('tempistica');
-        var blocked = false;
-
-        // Check proprietario
-        if (ownerNo && ownerNo.checked) {
-            gateOwner.classList.add('visible');
-            blocked = true;
-        } else {
-            gateOwner.classList.remove('visible');
-        }
-
-        // Check tempistica
-        if (timingSelect && timingSelect.value === 'solo_informativo') {
-            gateTiming.classList.add('visible');
-            blocked = true;
-        } else {
-            gateTiming.classList.remove('visible');
-        }
-
-        submitBtn.disabled = blocked;
-        return !blocked;
-    }
-
-    // Bind gating listeners
-    document.querySelectorAll('input[name="proprietario"]').forEach(function (radio) {
-        radio.addEventListener('change', checkGating);
-    });
-
-    var tempistica = document.getElementById('tempistica');
-    if (tempistica) {
-        tempistica.addEventListener('change', checkGating);
-    }
 
     /* ---------- Validation ---------- */
     function validateEmail(email) {
@@ -1502,6 +1425,8 @@ h1, h2, h3, h4 {
         form.querySelectorAll('.form-group').forEach(function (g) {
             g.classList.remove('error');
         });
+        var cb = form.querySelector('.checkbox-group');
+        if (cb) cb.style.outline = 'none';
     }
 
     function showError(fieldId, message) {
@@ -1521,55 +1446,23 @@ h1, h2, h3, h4 {
             e.preventDefault();
             clearErrors();
 
-            if (!checkGating()) return;
-
             var valid = true;
 
             // Nome
             var nome = document.getElementById('nome').value.trim();
-            if (!nome) { showError('nome', 'Inserisci nome e cognome'); valid = false; }
+            if (!nome) { showError('nome', 'Inserisci il nome'); valid = false; }
 
-            // Telefono
-            var tel = document.getElementById('telefono').value.trim();
-            if (!validatePhone(tel)) { showError('telefono', 'Inserisci un numero valido (min 8 cifre)'); valid = false; }
+            // Cognome
+            var cognome = document.getElementById('cognome').value.trim();
+            if (!cognome) { showError('cognome', 'Inserisci il cognome'); valid = false; }
 
             // Email
             var email = document.getElementById('email').value.trim();
             if (!validateEmail(email)) { showError('email', 'Inserisci un\'email valida'); valid = false; }
 
-            // Proprietario
-            var propSi = document.querySelector('input[name="proprietario"][value="si"]');
-            if (!propSi || !propSi.checked) {
-                var propNo = document.querySelector('input[name="proprietario"][value="no"]');
-                if (!propNo || !propNo.checked) {
-                    showError('propSi', 'Seleziona una risposta');
-                    valid = false;
-                }
-            }
-
-            // Comune
-            var comune = document.getElementById('comune').value.trim();
-            if (!comune) { showError('comune', 'Inserisci il comune/zona'); valid = false; }
-
-            // Tipologia
-            var tipologia = document.getElementById('tipologia').value;
-            if (!tipologia) { showError('tipologia', 'Seleziona la tipologia'); valid = false; }
-
-            // Stato immobile
-            var stato = document.getElementById('stato').value;
-            if (!stato) { showError('stato', 'Seleziona lo stato'); valid = false; }
-
-            // Reddito
-            var reddito = document.getElementById('reddito').value;
-            if (!reddito) { showError('reddito', 'Seleziona il reddito stimato'); valid = false; }
-
-            // Tempistica
-            var temp = document.getElementById('tempistica').value;
-            if (!temp) { showError('tempistica', 'Seleziona la tempistica'); valid = false; }
-
-            // Disponibilita
-            var dispo = document.getElementById('disponibilita').value;
-            if (!dispo) { showError('disponibilita', 'Seleziona la disponibilità'); valid = false; }
+            // Telefono
+            var tel = document.getElementById('telefono').value.trim();
+            if (!validatePhone(tel)) { showError('telefono', 'Inserisci un numero valido (min 8 cifre)'); valid = false; }
 
             // Privacy
             var privacy = document.getElementById('privacy');
@@ -1584,19 +1477,13 @@ h1, h2, h3, h4 {
             // Collect data
             var data = {
                 nome: nome,
+                cognome: cognome,
                 telefono: tel,
                 email: email,
-                proprietario: document.querySelector('input[name="proprietario"]:checked').value,
-                comune: comune,
-                tipologia: tipologia,
-                stato: stato,
-                reddito: reddito,
-                tempistica: temp,
-                disponibilita: dispo,
-                tipo_form: 'landing_qualificazione'
+                tipo_form: 'landing_analisi'
             };
 
-            console.log('Lead qualificato:', data);
+            console.log('Lead:', data);
 
             // Invia al webhook
             fetch('https://hook.eu1.make.com/nvj5cnh7fpg78yn9hcmfd93kvzjk3jfz', {
@@ -1610,9 +1497,6 @@ h1, h2, h3, h4 {
             // Show modal
             document.getElementById('successModal').classList.add('active');
             form.reset();
-            submitBtn.disabled = false;
-            gateOwner.classList.remove('visible');
-            gateTiming.classList.remove('visible');
         });
     }
 
