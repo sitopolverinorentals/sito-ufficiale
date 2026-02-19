@@ -1,7 +1,7 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    { "source": "/analisi", "destination": "/landing", "statusCode": 301 }
+  "rewrites": [
+    { "source": "/analisi", "destination": "/landing/index.html" }
   ]
 }
