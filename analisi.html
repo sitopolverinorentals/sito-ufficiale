@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analisi Redditività Immobile a Verona | Polverino Rentals</title>
-    <meta name="description" content="Scopri quanto può rendere il tuo immobile a Verona con gli affitti brevi. Analisi personalizzata gratuita da Polverino Rentals, gestione professionale affitti brevi.">
+    <meta name="description" content="Analisi personalizzata per proprietari di immobili a Verona che vogliono aumentare la rendita con affitti brevi. Valutazione manuale, non automatica.">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Analisi Redditività Immobile a Verona | Polverino Rentals">
-    <meta property="og:description" content="Aumentiamo la rendita del tuo appartamento a Verona del 25-40%. Richiedi un'analisi personalizzata gratuita.">
+    <meta property="og:description" content="Un caso reale ha generato oltre 65.000€ di prenotazioni. Richiedi una valutazione manuale del tuo immobile.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
 
     <link rel="icon" type="image/png" href="/images/favicon.png">
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -30,205 +29,148 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=715281194970492&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-/* ============================================
-   Polverino Rentals – Landing Page Styles
-   Premium luxury real-estate look
-   ============================================ */
+/* =============================================
+   Polverino Rentals – Landing Analisi
+   Navy #101030 · Gold #F0D090 · Premium minimal
+   ============================================= */
 
-/* ---------- Variables ---------- */
 :root {
-    --navy: #101030;
-    --navy-2: #0C0C26;
-    --gold: #F0D090;
-    --gold-2: #D0B070;
-    --cream: #F7F4EC;
-    --muted: rgba(247,244,236,0.75);
-    --white: #ffffff;
-    --danger: #e74c3c;
-    --success: #27ae60;
-    --radius: 12px;
-    --radius-sm: 8px;
-    --shadow: 0 4px 24px rgba(0,0,0,0.25);
-    --glow: 0 0 30px rgba(240,208,144,0.08);
-    --transition: 0.3s ease;
+    --navy:       #101030;
+    --navy-2:     #0C0C26;
+    --navy-light: #181840;
+    --gold:       #F0D090;
+    --gold-2:     #D0B070;
+    --cream:      #F7F4EC;
+    --muted:      rgba(247,244,236,0.7);
+    --danger:     #e05050;
+    --radius:     12px;
+    --radius-sm:  8px;
+    --shadow:     0 4px 32px rgba(0,0,0,0.3);
+    --glow:       0 0 40px rgba(240,208,144,0.07);
+    --t:          0.3s ease;
 }
 
-/* ---------- Reset ---------- */
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-}
+html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    color: var(--cream);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--navy);
+    color: var(--cream);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
 }
 
 img { max-width: 100%; height: auto; display: block; }
-a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
+a { color: var(--gold); text-decoration: none; transition: color var(--t); }
 a:hover { color: var(--gold-2); }
 
-h1, h2, h3, h4 {
-    font-family: 'Cormorant Garamond', 'Georgia', serif;
+h1,h2,h3,h4 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 600;
-    line-height: 1.25;
+    line-height: 1.2;
     color: var(--cream);
 }
 
-/* ---------- Utility ---------- */
+/* ── Container ── */
 .container {
-    max-width: 1100px;
+    max-width: 1060px;
     margin: 0 auto;
     padding: 0 24px;
 }
+.section-padding { padding: 96px 0; }
 
-.section-padding {
-    padding: 100px 0;
-}
-
-.text-gold { color: var(--gold); }
-.text-muted { color: var(--muted); }
-.text-center { text-align: center; }
-
-/* ---------- Navbar ---------- */
+/* ── Navbar ── */
 .navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 900;
-    background: rgba(16,16,48,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(240,208,144,0.12);
+    background: rgba(16,16,48,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(240,208,144,0.1);
     padding: 14px 0;
-    transition: background var(--transition);
 }
-
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-.navbar-logo img {
-    height: 50px;
-    width: auto;
-}
-
+.navbar-logo img { height: 44px; width: auto; }
 .navbar-cta {
     display: inline-block;
     background: var(--gold);
     color: var(--navy);
     font-weight: 700;
-    font-size: 0.9rem;
-    padding: 10px 24px;
+    font-size: 0.88rem;
+    padding: 10px 22px;
     border-radius: 50px;
-    transition: all var(--transition);
-    border: none;
-    cursor: pointer;
+    transition: all var(--t);
+    white-space: nowrap;
 }
+.navbar-cta:hover { background: var(--gold-2); color: var(--navy); transform: translateY(-1px); }
 
-.navbar-cta:hover {
-    background: var(--gold-2);
-    color: var(--navy);
-    transform: translateY(-1px);
-}
-
-/* ---------- Hero ---------- */
+/* ── Hero ── */
 .hero {
-    padding: 160px 0 100px;
-    background: linear-gradient(170deg, var(--navy) 0%, var(--navy-2) 100%);
+    padding: 152px 0 96px;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
     position: relative;
     overflow: hidden;
 }
-
 .hero::before {
     content: '';
     position: absolute;
-    top: -50%; right: -30%;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(240,208,144,0.06) 0%, transparent 70%);
+    top: -40%; right: -20%;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(240,208,144,0.05) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
 
-.hero .container {
-    display: flex;
-    flex-direction: column;
+.hero-inner {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 64px;
     align-items: center;
-    text-align: center;
 }
 
 .hero h1 {
-    font-size: 3.6rem;
-    margin-bottom: 28px;
-    color: var(--cream);
-    text-align: center;
+    font-size: 3rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
-}
-
-.hero h1 span {
-    color: var(--gold);
-}
-
-.hero-text {
-    max-width: 850px;
-}
-
-.hero-guarantee {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--gold);
     margin-bottom: 24px;
-    padding: 16px 24px;
-    border: 1px solid rgba(240,208,144,0.3);
-    border-radius: var(--radius-sm);
-    background: rgba(240,208,144,0.06);
-    line-height: 1.6;
-    text-align: center;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+}
+.hero h1 em {
+    font-style: normal;
+    color: var(--gold);
 }
 
 .hero-sub {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--muted);
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     line-height: 1.8;
-    text-align: center;
 }
 
 .hero-bullets {
     list-style: none;
     margin-bottom: 36px;
-    display: inline-block;
-    text-align: left;
 }
-
 .hero-bullets li {
-    padding: 8px 0;
-    padding-left: 28px;
+    padding: 7px 0 7px 28px;
     position: relative;
+    font-size: 0.97rem;
     color: var(--cream);
-    font-size: 1rem;
 }
-
 .hero-bullets li::before {
-    content: '\2713';
+    content: '✓';
     position: absolute;
     left: 0;
     color: var(--gold);
@@ -240,67 +182,191 @@ h1, h2, h3, h4 {
     background: var(--gold);
     color: var(--navy);
     font-weight: 700;
-    font-size: 1.1rem;
-    padding: 16px 40px;
+    font-size: 1.05rem;
+    padding: 15px 38px;
     border-radius: 50px;
     border: none;
     cursor: pointer;
-    transition: all var(--transition);
-    box-shadow: 0 4px 20px rgba(240,208,144,0.2);
+    transition: all var(--t);
+    box-shadow: 0 4px 20px rgba(240,208,144,0.25);
+    text-align: center;
 }
-
 .btn-primary:hover {
     background: var(--gold-2);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 30px rgba(240,208,144,0.3);
     color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(240,208,144,0.35);
 }
 
-.hero-filter {
-    margin-top: 16px;
-    font-size: 0.85rem;
+.hero-microcopy {
+    margin-top: 14px;
+    font-size: 0.82rem;
     color: var(--muted);
     font-style: italic;
 }
 
-/* Hero visual */
-.hero-visual {
-    position: relative;
+/* Hero photo */
+.hero-photo {
     border: 1px solid rgba(240,208,144,0.15);
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--glow);
-    max-width: 350px;
-    margin-top: 40px;
 }
-
-.hero-visual img {
+.hero-photo img {
     width: 100%;
-    height: 100%;
+    height: 420px;
     object-fit: cover;
     display: block;
-    border-radius: var(--radius);
 }
 
-/* ---------- Section: Video ---------- */
+/* ── Garanzia strip ── */
+.strip-guarantee {
+    background: rgba(240,208,144,0.07);
+    border-top: 1px solid rgba(240,208,144,0.15);
+    border-bottom: 1px solid rgba(240,208,144,0.15);
+    padding: 22px 0;
+    text-align: center;
+}
+.strip-guarantee p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gold);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ── Caso studio ── */
+.section-case { background: var(--navy-2); }
+
+.case-card {
+    max-width: 820px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(240,208,144,0.04), rgba(240,208,144,0.01));
+    border: 1px solid rgba(240,208,144,0.15);
+    border-radius: var(--radius);
+    padding: 52px 48px;
+    box-shadow: var(--glow);
+}
+
+.section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-2);
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-size: 2.1rem;
+    text-align: center;
+    margin-bottom: 12px;
+}
+.section-lead {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 580px;
+    margin: 0 auto 52px;
+    line-height: 1.8;
+}
+
+.case-title { font-size: 1.5rem; color: var(--gold); margin-bottom: 6px; }
+.case-location { font-size: 0.9rem; color: var(--muted); margin-bottom: 32px; }
+
+.case-stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+.case-stat { text-align: center; }
+.case-stat .val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    line-height: 1.1;
+}
+.case-stat .lbl { font-size: 0.82rem; color: var(--muted); margin-top: 4px; display: block; }
+
+.case-strategy {
+    font-size: 0.93rem;
+    color: var(--cream);
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+.case-note {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+    margin-top: 28px;
+}
+
+/* ── Qualificazione ── */
+.section-qualify {
+    background: var(--navy);
+}
+
+.qualify-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.qualify-card {
+    padding: 36px 32px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(240,208,144,0.12);
+}
+.qualify-card.yes {
+    background: rgba(39,174,96,0.05);
+    border-color: rgba(39,174,96,0.2);
+}
+.qualify-card.no {
+    background: rgba(200,60,60,0.05);
+    border-color: rgba(200,60,60,0.18);
+}
+.qualify-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+.qualify-card.yes h3 { color: #5dd88a; }
+.qualify-card.no h3  { color: #e88; }
+
+.qualify-card ul { list-style: none; }
+.qualify-card ul li {
+    padding: 7px 0 7px 28px;
+    position: relative;
+    font-size: 0.93rem;
+    color: var(--cream);
+}
+.qualify-card.yes ul li::before { content:'✓'; position:absolute; left:0; color:#5dd88a; font-weight:700; }
+.qualify-card.no  ul li::before { content:'✗'; position:absolute; left:0; color:#e88;    font-weight:700; }
+
+/* ── Video ── */
 .section-video {
     background: var(--navy-2);
-    border-top: 1px solid rgba(240,208,144,0.08);
-    border-bottom: 1px solid rgba(240,208,144,0.08);
+    border-top: 1px solid rgba(240,208,144,0.07);
+    border-bottom: 1px solid rgba(240,208,144,0.07);
 }
 
-.video-wrapper {
-    max-width: 750px;
-    margin: 0 auto;
-    border: 1px solid rgba(240,208,144,0.15);
+.video-wrap {
+    max-width: 760px;
+    margin: 0 auto 24px;
+    border: 1px solid rgba(240,208,144,0.14);
     border-radius: var(--radius);
     overflow: hidden;
     aspect-ratio: 16/9;
-    background: var(--navy);
+    background: var(--navy-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
     box-shadow: var(--glow);
 }
 
@@ -309,1209 +375,715 @@ h1, h2, h3, h4 {
     color: var(--muted);
     padding: 40px;
 }
-
-.video-placeholder .play-icon {
+.video-placeholder .play {
     font-size: 4rem;
     color: var(--gold);
     display: block;
     margin-bottom: 16px;
+    opacity: 0.85;
 }
 
-.video-note {
+.video-filter {
     text-align: center;
     font-size: 0.9rem;
     color: var(--gold-2);
     font-style: italic;
-}
-
-/* ---------- Section: Caso Studio ---------- */
-.section-case {
-    background: var(--navy);
-}
-
-.case-card {
-    max-width: 800px;
-    margin: 0 auto;
-    background: linear-gradient(135deg, rgba(240,208,144,0.04), rgba(240,208,144,0.01));
-    border: 1px solid rgba(240,208,144,0.15);
-    border-radius: var(--radius);
-    padding: 48px 40px;
-    box-shadow: var(--glow);
-}
-
-.case-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-    color: var(--gold);
-}
-
-.case-card .case-subtitle {
-    font-size: 1rem;
-    color: var(--muted);
-    margin-bottom: 28px;
-}
-
-.case-stats {
-    display: flex;
-    gap: 32px;
-    margin-bottom: 28px;
-    flex-wrap: wrap;
-}
-
-.case-stat {
-    text-align: center;
-}
-
-.case-stat .value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--gold);
-    display: block;
-}
-
-.case-stat .label {
-    font-size: 0.85rem;
-    color: var(--muted);
-}
-
-.case-strategy {
-    font-size: 0.95rem;
-    color: var(--cream);
-    margin-bottom: 28px;
-    line-height: 1.8;
-}
-
-.case-screenshots {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 24px;
-}
-
-.screenshot-placeholder {
-    aspect-ratio: 4/3;
-    background: rgba(240,208,144,0.04);
-    border: 1px solid rgba(240,208,144,0.1);
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    color: var(--muted);
-    text-align: center;
-    padding: 12px;
-}
-
-.case-note {
-    font-size: 0.85rem;
-    color: var(--muted);
-    font-style: italic;
-    text-align: center;
-}
-
-/* ---------- Section: Per chi / Non per chi ---------- */
-.section-filter {
-    background: var(--navy-2);
-    border-top: 1px solid rgba(240,208,144,0.08);
-    border-bottom: 1px solid rgba(240,208,144,0.08);
-}
-
-.filter-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    max-width: 900px;
+    max-width: 560px;
     margin: 0 auto;
 }
 
-.filter-card {
-    padding: 40px 32px;
-    border-radius: var(--radius);
-    border: 1px solid rgba(240,208,144,0.12);
-}
-
-.filter-card.yes {
-    background: rgba(39,174,96,0.06);
-    border-color: rgba(39,174,96,0.25);
-}
-
-.filter-card.no {
-    background: rgba(231,76,60,0.06);
-    border-color: rgba(231,76,60,0.25);
-}
-
-.filter-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-}
-
-.filter-card.yes h3 { color: #4ecf7a; }
-.filter-card.no h3 { color: #e88; }
-
-.filter-card ul {
-    list-style: none;
-}
-
-.filter-card ul li {
-    padding: 8px 0;
-    padding-left: 28px;
-    position: relative;
-    font-size: 0.95rem;
-    color: var(--cream);
-}
-
-.filter-card.yes ul li::before {
-    content: '\2713';
-    position: absolute;
-    left: 0;
-    color: #4ecf7a;
-    font-weight: 700;
-}
-
-.filter-card.no ul li::before {
-    content: '\2717';
-    position: absolute;
-    left: 0;
-    color: #e88;
-    font-weight: 700;
-}
-
-/* ---------- Section: Processo ---------- */
-.section-process {
-    background: var(--navy);
-}
+/* ── Processo ── */
+.section-process { background: var(--navy); }
 
 .process-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    max-width: 1000px;
+    gap: 20px;
+    max-width: 980px;
     margin: 0 auto;
 }
-
 .process-step {
     text-align: center;
-    padding: 32px 20px;
-    border: 1px solid rgba(240,208,144,0.1);
+    padding: 32px 18px;
+    border: 1px solid rgba(240,208,144,0.09);
     border-radius: var(--radius);
     background: rgba(240,208,144,0.02);
-    transition: all var(--transition);
+    transition: all var(--t);
 }
-
 .process-step:hover {
-    border-color: rgba(240,208,144,0.25);
+    border-color: rgba(240,208,144,0.22);
     box-shadow: var(--glow);
 }
-
-.process-number {
+.process-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     font-weight: 700;
     color: var(--gold);
     display: block;
-    margin-bottom: 12px;
-}
-
-.process-step h3 {
-    font-size: 1.15rem;
     margin-bottom: 10px;
-    color: var(--cream);
 }
+.process-step h3 { font-size: 1.05rem; margin-bottom: 10px; }
+.process-step p  { font-size: 0.87rem; color: var(--muted); line-height: 1.6; }
 
-.process-step p {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.6;
-}
-
-/* ---------- Section: Offerta ---------- */
-.section-offer {
-    background: var(--navy-2);
-    border-top: 1px solid rgba(240,208,144,0.08);
-    border-bottom: 1px solid rgba(240,208,144,0.08);
-}
-
-.offer-box {
-    max-width: 750px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 48px 40px;
-    border: 1px solid rgba(240,208,144,0.15);
-    border-radius: var(--radius);
-    background: rgba(240,208,144,0.03);
-    box-shadow: var(--glow);
-}
-
-.offer-box p {
-    font-size: 1.05rem;
-    color: var(--cream);
-    margin-bottom: 20px;
-    line-height: 1.8;
-}
-
-.offer-scarcity {
-    display: inline-block;
-    background: rgba(240,208,144,0.08);
-    border: 1px solid var(--gold-2);
-    color: var(--gold);
-    padding: 12px 28px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-/* ---------- Section: FAQ ---------- */
-.section-faq {
-    background: var(--navy);
-}
-
-.faq-list {
-    max-width: 750px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    border-bottom: 1px solid rgba(240,208,144,0.1);
-}
-
-.faq-question {
-    width: 100%;
-    background: none;
-    border: none;
-    color: var(--cream);
-    font-family: 'Inter', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    text-align: left;
-    padding: 20px 40px 20px 0;
-    cursor: pointer;
-    position: relative;
-    transition: color var(--transition);
-}
-
-.faq-question:hover { color: var(--gold); }
-
-.faq-question:focus {
-    outline: 2px solid var(--gold);
-    outline-offset: 2px;
-    border-radius: 4px;
-}
-
-.faq-question::after {
-    content: '+';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.4rem;
-    color: var(--gold);
-    transition: transform var(--transition);
-}
-
-.faq-item.open .faq-question::after {
-    content: '\2212';
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-}
-
-.faq-answer-inner {
-    padding: 0 0 20px;
-    font-size: 0.95rem;
-    color: var(--muted);
-    line-height: 1.8;
-}
-
-.faq-item.open .faq-answer {
-    max-height: 300px;
-}
-
-/* ---------- Section: Form + Calendly ---------- */
+/* ── Form + Calendly ── */
 .section-form {
-    background: linear-gradient(170deg, var(--navy-2) 0%, var(--navy) 100%);
+    background: linear-gradient(160deg, var(--navy-2) 0%, var(--navy) 100%);
     border-top: 1px solid rgba(240,208,144,0.08);
 }
 
 .form-calendly-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: 28px;
     align-items: start;
 }
 
-.form-card {
+.form-card, .calendly-card {
     background: rgba(240,208,144,0.03);
-    border: 1px solid rgba(240,208,144,0.15);
+    border: 1px solid rgba(240,208,144,0.14);
     border-radius: var(--radius);
-    padding: 36px 32px;
+    padding: 40px 36px;
     box-shadow: var(--glow);
 }
 
-.calendly-card {
-    background: rgba(240,208,144,0.03);
-    border: 1px solid rgba(240,208,144,0.15);
-    border-radius: var(--radius);
-    padding: 36px 32px;
-    box-shadow: var(--glow);
-    overflow: hidden;
+.form-head {
+    margin-bottom: 8px;
+    font-size: 1.3rem;
 }
-
-.calendly-card .calendly-inline-widget {
-    border-radius: var(--radius-sm);
-}
-
-.form-subtitle {
-    text-align: center;
-    font-size: 0.95rem;
+.form-sub {
+    font-size: 0.88rem;
     color: var(--muted);
-    margin-bottom: 36px;
     font-style: italic;
+    margin-bottom: 32px;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 18px;
 }
-
-.form-group {
-    margin-bottom: 24px;
-}
-
+.form-group { margin-bottom: 20px; }
 .form-group label {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.87rem;
     font-weight: 600;
     color: var(--cream);
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
-
 .form-group input,
-.form-group select,
-.form-group textarea {
+.form-group select {
     width: 100%;
-    padding: 14px 18px;
+    padding: 13px 16px;
     background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(240,208,144,0.2);
+    border: 1px solid rgba(240,208,144,0.18);
     border-radius: var(--radius-sm);
     color: var(--cream);
     font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    transition: all var(--transition);
+    font-size: 0.93rem;
+    transition: all var(--t);
 }
-
 .form-group input::placeholder { color: var(--muted); }
-
 .form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.form-group select:focus {
     outline: none;
     border-color: var(--gold);
     box-shadow: 0 0 0 3px rgba(240,208,144,0.1);
 }
-
 .form-group select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F0D090' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 16px center;
-    padding-right: 40px;
+    background-position: right 14px center;
+    padding-right: 38px;
+    cursor: pointer;
 }
+.form-group select option { background: var(--navy); color: var(--cream); }
 
-.form-group select option {
-    background: var(--navy);
-    color: var(--cream);
-}
-
-/* Radio groups */
+/* Radio */
 .radio-group {
     display: flex;
-    gap: 24px;
+    gap: 20px;
     margin-top: 4px;
+    flex-wrap: wrap;
 }
-
 .radio-label {
     display: flex;
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 0.93rem;
     color: var(--cream);
 }
-
 .radio-label input[type="radio"] {
-    width: 18px;
-    height: 18px;
+    width: 17px; height: 17px;
     accent-color: var(--gold);
 }
 
-/* Gating message */
-.gate-message {
+/* Soft filter msg */
+.soft-msg {
     display: none;
-    background: rgba(231,76,60,0.1);
-    border: 1px solid rgba(231,76,60,0.3);
+    background: rgba(240,208,144,0.07);
+    border: 1px solid rgba(240,208,144,0.2);
     border-radius: var(--radius-sm);
-    padding: 14px 18px;
+    padding: 12px 16px;
     margin-top: 8px;
-    font-size: 0.9rem;
-    color: #e88;
+    font-size: 0.85rem;
+    color: var(--gold);
+    line-height: 1.5;
 }
-
-.gate-message.visible {
-    display: block;
-}
+.soft-msg.visible { display: block; }
 
 /* Checkbox */
 .checkbox-group {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
-
 .checkbox-group input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
+    width: 17px; height: 17px;
     margin-top: 3px;
     accent-color: var(--gold);
     flex-shrink: 0;
 }
-
-.checkbox-group label {
-    font-size: 0.85rem;
-    color: var(--muted);
-    cursor: pointer;
-}
-
-.checkbox-group a {
-    color: var(--gold);
-    text-decoration: underline;
-}
+.checkbox-group label { font-size: 0.83rem; color: var(--muted); cursor: pointer; }
 
 .btn-submit {
     width: 100%;
     background: var(--gold);
     color: var(--navy);
     font-weight: 700;
-    font-size: 1.1rem;
-    padding: 16px 40px;
+    font-size: 1.05rem;
+    padding: 15px;
     border-radius: 50px;
     border: none;
     cursor: pointer;
-    transition: all var(--transition);
+    transition: all var(--t);
     box-shadow: 0 4px 20px rgba(240,208,144,0.2);
 }
-
-.btn-submit:hover:not(:disabled) {
+.btn-submit:hover {
     background: var(--gold-2);
     transform: translateY(-2px);
-    box-shadow: 0 6px 30px rgba(240,208,144,0.3);
+    box-shadow: 0 6px 28px rgba(240,208,144,0.3);
 }
-
-.btn-submit:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.form-footer-text {
+.form-note {
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--muted);
-    margin-top: 16px;
+    margin-top: 14px;
 }
 
-/* Error states */
+/* Error */
 .form-group.error input,
-.form-group.error select {
-    border-color: var(--danger);
-}
+.form-group.error select { border-color: var(--danger); }
+.error-text { font-size: 0.78rem; color: var(--danger); margin-top: 4px; display: none; }
+.form-group.error .error-text { display: block; }
 
-.error-text {
-    font-size: 0.8rem;
-    color: var(--danger);
-    margin-top: 4px;
-    display: none;
-}
+/* Calendly card */
+.calendly-card { overflow: hidden; }
+.cal-head { font-size: 1.3rem; margin-bottom: 8px; }
+.cal-sub { font-size: 0.88rem; color: var(--muted); font-style: italic; margin-bottom: 24px; }
+.calendly-card .calendly-inline-widget { border-radius: var(--radius-sm); }
 
-.form-group.error .error-text {
-    display: block;
-}
-
-/* ---------- Modal ---------- */
+/* ── Modal ── */
 .modal-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.72);
     z-index: 1000;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 0.3s ease;
 }
-
-.modal-overlay.active {
-    display: flex;
-}
-
+.modal-overlay.active { display: flex; }
 .modal-content {
     background: var(--navy);
     border: 1px solid rgba(240,208,144,0.2);
     border-radius: var(--radius);
     padding: 48px 40px;
-    max-width: 500px;
+    max-width: 480px;
     width: 90%;
     text-align: center;
     box-shadow: var(--shadow);
-    animation: slideUp 0.4s ease;
+    animation: slideUp 0.35s ease;
 }
-
-.modal-content .modal-icon {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: 16px;
-}
-
-.modal-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 12px;
-    color: var(--gold);
-}
-
-.modal-content p {
-    color: var(--muted);
-    margin-bottom: 24px;
-    line-height: 1.7;
-}
-
+.modal-icon { font-size: 3rem; display: block; margin-bottom: 16px; color: var(--gold); }
+.modal-content h3 { font-size: 1.5rem; margin-bottom: 12px; color: var(--gold); }
+.modal-content p { color: var(--muted); margin-bottom: 24px; line-height: 1.7; }
 .modal-close {
-    background: var(--gold);
-    color: var(--navy);
-    font-weight: 700;
-    padding: 12px 32px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all var(--transition);
+    background: var(--gold); color: var(--navy);
+    font-weight: 700; padding: 12px 32px;
+    border: none; border-radius: 50px;
+    cursor: pointer; font-size: 1rem; transition: all var(--t);
 }
+.modal-close:hover { background: var(--gold-2); }
 
-.modal-close:hover {
-    background: var(--gold-2);
-}
-
-/* ---------- Footer ---------- */
+/* ── Footer ── */
 .footer {
     background: var(--navy-2);
-    border-top: 1px solid rgba(240,208,144,0.08);
+    border-top: 1px solid rgba(240,208,144,0.07);
     padding: 40px 0;
 }
-
 .footer .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+.footer-logo img { height: 34px; width: auto; }
+.footer p { font-size: 0.83rem; color: var(--muted); }
 
-.footer-logo img {
-    height: 35px;
-    width: auto;
-}
-
-.footer p {
-    font-size: 0.85rem;
-    color: var(--muted);
-}
-
-@media (max-width: 768px) {
-    .footer .container {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-    }
-}
-
-/* ---------- Sticky CTA Mobile ---------- */
+/* ── Sticky CTA mobile ── */
 .sticky-cta {
     display: none;
     position: fixed;
     bottom: 0; left: 0; right: 0;
     z-index: 800;
     padding: 12px 20px;
-    background: rgba(16,16,48,0.95);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(240,208,144,0.15);
+    background: rgba(16,16,48,0.96);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(240,208,144,0.14);
 }
+.sticky-cta .btn-primary { width: 100%; font-size: 0.97rem; padding: 14px; }
 
-.sticky-cta .btn-primary {
-    width: 100%;
-    text-align: center;
-    font-size: 1rem;
-    padding: 14px 20px;
-}
+/* ── Animations ── */
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ---------- Animations ---------- */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ---------- Section titles ---------- */
-.section-title {
-    font-size: 2.2rem;
-    text-align: center;
-    margin-bottom: 16px;
-}
-
-.section-lead {
-    text-align: center;
-    font-size: 1.05rem;
-    color: var(--muted);
-    max-width: 600px;
-    margin: 0 auto 48px;
-}
-
-/* ---------- Responsive ---------- */
+/* ── Responsive ── */
 @media (max-width: 900px) {
-    .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-    .hero {
-        padding: 130px 0 70px;
-    }
+    .hero { padding: 120px 0 72px; }
 
-    .hero h1 {
-        font-size: 2.4rem;
-    }
+    .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-photo img { height: 280px; }
+    .hero-photo { max-width: 340px; margin: 0 auto; }
 
-    .hero-visual {
-        max-width: 280px;
-    }
+    .qualify-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
 
-    .filter-grid {
-        grid-template-columns: 1fr;
-    }
+    .form-calendly-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .form-card, .calendly-card { padding: 32px 20px; }
 
-    .process-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+    .case-card { padding: 36px 24px; }
+    .case-stats { gap: 24px; }
 
-    .case-screenshots {
-        grid-template-columns: 1fr;
-    }
+    .section-title { font-size: 1.85rem; }
+    .section-padding { padding: 72px 0; }
 
-    .form-calendly-grid {
-        grid-template-columns: 1fr;
-    }
+    .footer .container { flex-direction: column; gap: 12px; text-align: center; }
 
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
+    .sticky-cta { display: block; }
+    body { padding-bottom: 72px; }
 
-    .form-card {
-        padding: 32px 20px;
-    }
-
-    .calendly-card {
-        padding: 24px 16px;
-    }
-
-    .case-card {
-        padding: 32px 24px;
-    }
-
-    .offer-box {
-        padding: 32px 24px;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .case-stats {
-        justify-content: center;
-    }
-
-    .sticky-cta {
-        display: block;
-    }
-
-    body {
-        padding-bottom: 72px;
-    }
-
-    .navbar-cta {
-        font-size: 0.8rem;
-        padding: 8px 16px;
-    }
-
-    .section-padding {
-        padding: 70px 0;
-    }
-
-    .modal-content {
-        padding: 32px 24px;
-    }
+    .navbar-cta { font-size: 0.8rem; padding: 8px 16px; }
+    .modal-content { padding: 32px 22px; }
 }
 
 @media (max-width: 480px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .process-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .radio-group {
-        flex-direction: column;
-        gap: 12px;
-    }
+    .hero h1 { font-size: 1.85rem; }
+    .radio-group { flex-direction: column; gap: 10px; }
+    .process-grid { grid-template-columns: 1fr; }
 }
     </style>
 </head>
 <body>
 
-    <!-- ========== NAVBAR ========== -->
-    <nav class="navbar" role="navigation" aria-label="Navigazione principale">
-        <div class="container">
-            <a href="#" class="navbar-logo" aria-label="Polverino Rentals - Home">
-                <img src="/images/logo.png" alt="Polverino Rentals" width="160" height="50">
-            </a>
-            <a href="#analisi" class="navbar-cta">Richiedi Analisi Personalizzata</a>
-        </div>
-    </nav>
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" role="navigation" aria-label="Navigazione principale">
+    <div class="container">
+        <a href="#" class="navbar-logo" aria-label="Polverino Rentals">
+            <img src="/images/logo.png" alt="Polverino Rentals" height="44">
+        </a>
+        <a href="#contatto" class="navbar-cta">Richiedi Analisi</a>
+    </div>
+</nav>
 
-    <!-- ========== HERO ========== -->
-    <section class="hero" id="hero">
-        <div class="container">
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="hero-inner">
             <div class="hero-text">
-                <h1>Rendita del tuo immobile <span>+25&ndash;40%</span></h1>
-                <p class="hero-guarantee">Se non aumentiamo la tua rendita, lavoriamo gratis fino a quando il tuo immobile non va in profitto.</p>
-                <p class="hero-sub">Caso reale: un bilocale in centro storico ha generato oltre <strong>65.000&euro;</strong> di prenotazioni. Richiedi un'analisi manuale personalizzata (non automatica) per capire il potenziale del tuo immobile.</p>
+                <h1>Analisi personalizzata per proprietari di immobili a Verona che vogliono aumentare la rendita con <em>affitti brevi</em></h1>
+                <p class="hero-sub">Un caso reale ha generato oltre <strong>65.000&euro;</strong> di prenotazioni con gestione professionale. Richiedi una valutazione manuale, non automatica.</p>
                 <ul class="hero-bullets">
-                    <li>Gestione completa: ospiti, pulizie, messaggistica, ottimizzazione annuncio</li>
-                    <li>Prezzi dinamici ed eventi: massimizziamo occupazione e ADR</li>
-                    <li>Selezioniamo pochi immobili al mese per garantire performance</li>
+                    <li>Gestione completa (ospiti, pulizie, pricing)</li>
+                    <li>Ottimizzazione rendita con dati reali di mercato</li>
+                    <li>Servizio dedicato solo a proprietari selezionati</li>
                 </ul>
-                <a href="#analisi" class="btn-primary">Richiedi Analisi Personalizzata</a>
-                <p class="hero-filter">Solo per proprietari di immobili a Verona (bilocali/trilocali) pronti ad attivare entro 90 giorni.</p>
+                <a href="#contatto" class="btn-primary">Richiedi Analisi Personalizzata</a>
+                <p class="hero-microcopy">Servizio riservato a proprietari di immobili a Verona o zone turistiche</p>
             </div>
-            <div class="hero-visual">
-                <img src="/images/immagine-polverino.jpeg" alt="Pasquale Polverino - Fondatore Polverino Rentals">
+            <div class="hero-photo">
+                <img src="/images/immagine-polverino.jpeg" alt="Pasquale Polverino – Fondatore Polverino Rentals">
             </div>
-        </div>
-    </section>
-
-    <!-- ========== VIDEO ========== -->
-    <section class="section-video section-padding" id="video">
-        <div class="container">
-            <h2 class="section-title">Guarda come funziona <span class="text-gold">(2 minuti)</span></h2>
-            <div class="video-wrapper">
-                <!-- INSERISCI QUI IL VIDEO REALE -->
-                <div class="video-placeholder">
-                    <span class="play-icon" aria-hidden="true">&#9654;</span>
-                    <p>Video in arrivo</p>
-                </div>
-            </div>
-            <p class="video-note">Se sei solo curioso, questa analisi non fa per te.</p>
-        </div>
-    </section>
-
-    <!-- ========== CASO STUDIO ========== -->
-    <section class="section-case section-padding" id="caso-studio">
-        <div class="container">
-            <h2 class="section-title">Caso studio reale</h2>
-            <div class="case-card">
-                <h3>Bilocale &ndash; Centro storico</h3>
-                <p class="case-subtitle">Verona, zona Piazza Erbe</p>
-
-                <div class="case-stats">
-                    <div class="case-stat">
-                        <span class="value">65.000&euro;</span>
-                        <span class="label">Prenotazioni generate</span>
-                    </div>
-                    <div class="case-stat">
-                        <span class="value">+38%</span>
-                        <span class="label">vs affitto tradizionale</span>
-                    </div>
-                    <div class="case-stat">
-                        <span class="value">92%</span>
-                        <span class="label">Tasso occupazione</span>
-                    </div>
-                </div>
-
-                <p class="case-strategy"><strong>Strategia:</strong> ottimizzazione foto/annuncio + pricing dinamico + gestione calendario + costruzione recensioni</p>
-
-                <div class="case-screenshots">
-                    <div class="screenshot-placeholder">Screenshot dashboard</div>
-                    <div class="screenshot-placeholder">Screenshot calendario</div>
-                    <div class="screenshot-placeholder">Screenshot recensioni</div>
-                </div>
-
-                <p class="case-note">I risultati variano in base a zona, immobile e stagionalità. L'analisi serve a stimare il potenziale reale.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== PER CHI / NON PER CHI ========== -->
-    <section class="section-filter section-padding" id="filtro">
-        <div class="container">
-            <h2 class="section-title">Questo servizio è per te?</h2>
-            <p class="section-lead">Lavoriamo con pochi proprietari selezionati. Verifica se il tuo profilo è in linea.</p>
-            <div class="filter-grid">
-                <div class="filter-card yes">
-                    <h3>Per te se...</h3>
-                    <ul>
-                        <li>Sei proprietario dell'immobile</li>
-                        <li>Immobile a Verona o zone ad alta domanda turistica</li>
-                        <li>Vuoi aumentare la rendita entro 90 giorni</li>
-                        <li>Cerchi una gestione completa chiavi in mano</li>
-                    </ul>
-                </div>
-                <div class="filter-card no">
-                    <h3>NON per te se...</h3>
-                    <ul>
-                        <li>Vuoi solo un'idea / sei curioso</li>
-                        <li>Non sei proprietario dell'immobile</li>
-                        <li>Non vuoi attivare nei prossimi mesi</li>
-                        <li>Cerchi solo informazioni generiche</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== PROCESSO ========== -->
-    <section class="section-process section-padding" id="processo">
-        <div class="container">
-            <h2 class="section-title">Come lavoriamo</h2>
-            <p class="section-lead">Un percorso chiaro, dalla prima analisi all'ottimizzazione continua.</p>
-            <div class="process-grid">
-                <div class="process-step">
-                    <span class="process-number">1</span>
-                    <h3>Analisi</h3>
-                    <p>Studiamo dati di mercato, comparabili e potenziale turistico del tuo immobile.</p>
-                </div>
-                <div class="process-step">
-                    <span class="process-number">2</span>
-                    <h3>Setup</h3>
-                    <p>Foto professionali, annuncio ottimizzato, strategia prezzi e regole della casa.</p>
-                </div>
-                <div class="process-step">
-                    <span class="process-number">3</span>
-                    <h3>Operatività</h3>
-                    <p>Gestione ospiti, pulizie, check-in/out, comunicazione e assistenza 24/7.</p>
-                </div>
-                <div class="process-step">
-                    <span class="process-number">4</span>
-                    <h3>Ottimizzazione</h3>
-                    <p>Pricing dinamico, costruzione recensioni, sfruttamento eventi e stagionalità.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== OFFERTA ========== -->
-    <section class="section-offer section-padding" id="offerta">
-        <div class="container">
-            <h2 class="section-title">Analisi manuale + selezione</h2>
-            <div class="offer-box">
-                <p>Se l'immobile non ha potenziale turistico reale, te lo diciamo chiaramente. Lavoriamo solo su immobili con reale possibilità di aumento rendita.</p>
-                <p>Non usiamo calcolatori automatici: ogni analisi è svolta manualmente dal nostro team con dati di mercato aggiornati.</p>
-                <div class="offer-scarcity">Accettiamo un numero limitato di nuovi immobili al mese</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== FAQ ========== -->
-    <section class="section-faq section-padding" id="faq">
-        <div class="container">
-            <h2 class="section-title">Domande frequenti</h2>
-            <div class="faq-list">
-
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq1">Quanto costa la gestione?</button>
-                    <div class="faq-answer" id="faq1" role="region">
-                        <div class="faq-answer-inner">Commissione percentuale sui ricavi effettivi. I dettagli li definiamo dopo l'analisi, in base alle caratteristiche dell'immobile e ai servizi richiesti.</div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq2">Gestite anche Booking?</button>
-                    <div class="faq-answer" id="faq2" role="region">
-                        <div class="faq-answer-inner">Sì: pubblichiamo su Airbnb + Booking.com contemporaneamente. Il canale diretto si costruisce nel tempo per ridurre le commissioni delle piattaforme.</div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq3">Quanto tempo richiede al proprietario?</button>
-                    <div class="faq-answer" id="faq3" role="region">
-                        <div class="faq-answer-inner">Quasi zero: la gestione è completamente hands-off. Ci occupiamo di tutto noi, tu ricevi solo i pagamenti e i report mensili.</div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq4">Cosa succede in caso di danni?</button>
-                    <div class="faq-answer" id="faq4" role="region">
-                        <div class="faq-answer-inner">Deposito cauzionale + assicurazioni dedicate + procedure di verifica ospiti. Il tuo immobile è protetto sotto ogni aspetto.</div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq5">Quanto tempo per partire?</button>
-                    <div class="faq-answer" id="faq5" role="region">
-                        <div class="faq-answer-inner">In media 30&ndash;90 giorni, in base allo stato dell'immobile. Inclusi: servizio fotografico, creazione annunci, setup piattaforme e prime prenotazioni.</div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== CONTATTI + CALENDLY ========== -->
-    <section class="section-form section-padding" id="analisi">
-        <div class="container">
-            <h2 class="section-title">Richiedi l'Analisi Personalizzata</h2>
-            <div class="form-calendly-grid">
-
-                <!-- Form contatto -->
-                <div class="form-card">
-                    <p class="form-subtitle">Lascia i tuoi dati e ti ricontattiamo noi.</p>
-
-                    <form id="leadForm" novalidate>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="nome">Nome *</label>
-                                <input type="text" id="nome" name="nome" required placeholder="Il tuo nome" autocomplete="given-name">
-                                <span class="error-text">Inserisci il nome</span>
-                            </div>
-                            <div class="form-group">
-                                <label for="cognome">Cognome *</label>
-                                <input type="text" id="cognome" name="cognome" required placeholder="Il tuo cognome" autocomplete="family-name">
-                                <span class="error-text">Inserisci il cognome</span>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required placeholder="tua@email.com" autocomplete="email">
-                                <span class="error-text">Inserisci un'email valida</span>
-                            </div>
-                            <div class="form-group">
-                                <label for="telefono">Telefono *</label>
-                                <input type="tel" id="telefono" name="telefono" required placeholder="+39 123 456 7890" autocomplete="tel">
-                                <span class="error-text">Inserisci un numero valido (min 8 cifre)</span>
-                            </div>
-                        </div>
-
-                        <!-- Privacy -->
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="privacy" name="privacy" required>
-                            <label for="privacy">Acconsento al trattamento dei dati personali ai sensi del GDPR. *</label>
-                        </div>
-
-                        <!-- Submit -->
-                        <button type="submit" class="btn-submit" id="submitBtn">Invia richiesta</button>
-                        <p class="form-footer-text">Rispondiamo entro 24&ndash;48 ore lavorative.</p>
-                    </form>
-                </div>
-
-                <!-- Calendly embedded -->
-                <div class="calendly-card">
-                    <p class="form-subtitle">Oppure prenota direttamente una call.</p>
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/polverinorentals/30min?hide_gdpr_banner=1" style="min-width:300px;height:580px;"></div>
-                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== FOOTER ========== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-logo">
-                <img src="/images/logo.png" alt="Polverino Rentals" height="35">
-            </div>
-            <p>&copy; 2025 Polverino Rentals</p>
-        </div>
-    </footer>
-
-    <!-- ========== STICKY CTA MOBILE ========== -->
-    <div class="sticky-cta" aria-hidden="true">
-        <a href="#analisi" class="btn-primary">Richiedi Analisi Personalizzata</a>
-    </div>
-
-    <!-- ========== MODAL SUCCESSO ========== -->
-    <div class="modal-overlay" id="successModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal-content">
-            <span class="modal-icon" aria-hidden="true">&#10003;</span>
-            <h3 id="modalTitle">Richiesta inviata!</h3>
-            <p>Grazie per averci contattato. Ti contatteremo entro 24&ndash;48 ore lavorative per fissare la call di analisi.</p>
-            <button class="modal-close">Chiudi</button>
         </div>
     </div>
+</section>
 
-    <script>
-/* ============================================
-   Polverino Rentals – Landing Page JS
-   Vanilla JS: validation, gating, FAQ, scroll
-   ============================================ */
+<!-- ===== GARANZIA STRIP ===== -->
+<div class="strip-guarantee">
+    <div class="container">
+        <p>Se non aumentiamo la tua rendita, lavoriamo gratis fino a quando il tuo immobile non va in profitto.</p>
+    </div>
+</div>
 
+<!-- ===== CASO STUDIO ===== -->
+<section class="section-case section-padding" id="caso-studio">
+    <div class="container">
+        <div class="case-card">
+            <span class="section-label">Caso reale verificato</span>
+            <h3 class="case-title">Bilocale – Centro storico, Verona</h3>
+            <p class="case-location">Zona Piazza Erbe · Gestione avviata in 45 giorni</p>
+            <div class="case-stats">
+                <div class="case-stat">
+                    <span class="val">65.000&euro;</span>
+                    <span class="lbl">Prenotazioni generate</span>
+                </div>
+                <div class="case-stat">
+                    <span class="val">+38%</span>
+                    <span class="lbl">vs affitto tradizionale</span>
+                </div>
+                <div class="case-stat">
+                    <span class="val">92%</span>
+                    <span class="lbl">Tasso occupazione</span>
+                </div>
+            </div>
+            <p class="case-strategy"><strong>Strategia applicata:</strong> foto professionali, ottimizzazione annuncio, pricing dinamico su eventi e stagionalità, costruzione recensioni, gestione operativa completa.</p>
+            <p class="case-note">I risultati variano in base a zona, tipologia e stagionalità. L'analisi permette di stimare il potenziale reale del tuo immobile.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== QUALIFICAZIONE ===== -->
+<section class="section-qualify section-padding" id="per-chi">
+    <div class="container">
+        <h2 class="section-title">Questa analisi è adatta solo se:</h2>
+        <p class="section-lead">Selezioniamo pochi immobili al mese per garantire risultati concreti a ogni proprietario.</p>
+        <div class="qualify-grid">
+            <div class="qualify-card yes">
+                <h3>Analisi adatta se&hellip;</h3>
+                <ul>
+                    <li>Sei proprietario dell'immobile</li>
+                    <li>Vuoi aumentare la rendita con affitti brevi</li>
+                    <li>L'immobile è a Verona o zona turistica</li>
+                    <li>Sei disposto a valutare una gestione professionale</li>
+                </ul>
+            </div>
+            <div class="qualify-card no">
+                <h3>Non adatta se&hellip;</h3>
+                <ul>
+                    <li>Non sei proprietario dell'immobile</li>
+                    <li>Cerchi solo informazioni generiche</li>
+                    <li>Non sei interessato a una gestione esterna</li>
+                    <li>L'immobile è fuori da zone ad alta domanda turistica</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== VIDEO ===== -->
+<section class="section-video section-padding" id="video">
+    <div class="container">
+        <h2 class="section-title">Guarda come funziona la nostra gestione <span style="color:var(--gold);">(2 minuti)</span></h2>
+        <p class="section-lead">Spieghiamo come aumentiamo la rendita degli immobili senza che il proprietario gestisca operativamente.</p>
+        <div class="video-wrap">
+            <!-- INSERISCI QUI IL VIDEO: sostituire questo div con <iframe> YouTube/Vimeo -->
+            <div class="video-placeholder">
+                <span class="play" aria-hidden="true">&#9654;</span>
+                <p>Video in arrivo</p>
+            </div>
+        </div>
+        <p class="video-filter">Questo servizio non è per curiosi, ma per proprietari che vogliono aumentare concretamente la rendita.</p>
+    </div>
+</section>
+
+<!-- ===== PROCESSO ===== -->
+<section class="section-process section-padding" id="come-lavoriamo">
+    <div class="container">
+        <h2 class="section-title">Come lavoriamo</h2>
+        <p class="section-lead">Un percorso chiaro, dalla prima analisi all'ottimizzazione continua.</p>
+        <div class="process-grid">
+            <div class="process-step">
+                <span class="process-num">1</span>
+                <h3>Analisi</h3>
+                <p>Dati di mercato reali, comparabili locali e stima del potenziale del tuo immobile.</p>
+            </div>
+            <div class="process-step">
+                <span class="process-num">2</span>
+                <h3>Setup</h3>
+                <p>Foto professionali, annuncio ottimizzato, strategia prezzi e configurazione piattaforme.</p>
+            </div>
+            <div class="process-step">
+                <span class="process-num">3</span>
+                <h3>Operatività</h3>
+                <p>Gestione ospiti, pulizie, check-in/out e comunicazione. Zero impegno per il proprietario.</p>
+            </div>
+            <div class="process-step">
+                <span class="process-num">4</span>
+                <h3>Ottimizzazione</h3>
+                <p>Pricing dinamico, eventi, stagionalità. Report mensile con tutti i dati.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FORM + CALENDLY ===== -->
+<section class="section-form section-padding" id="contatto">
+    <div class="container">
+        <h2 class="section-title">Richiedi l'Analisi Personalizzata</h2>
+        <p class="section-lead">Compila il modulo oppure prenota direttamente una call. Rispondiamo entro 24&ndash;48 ore lavorative.</p>
+        <div class="form-calendly-grid">
+
+            <!-- Form -->
+            <div class="form-card">
+                <h3 class="form-head">Lascia i tuoi dati</h3>
+                <p class="form-sub">Ti ricontattiamo noi per fissare la call di valutazione.</p>
+
+                <form id="leadForm" novalidate>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome *</label>
+                            <input type="text" id="nome" name="nome" required placeholder="Il tuo nome" autocomplete="given-name">
+                            <span class="error-text">Inserisci il nome</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="cognome">Cognome *</label>
+                            <input type="text" id="cognome" name="cognome" required placeholder="Il tuo cognome" autocomplete="family-name">
+                            <span class="error-text">Inserisci il cognome</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="tua@email.com" autocomplete="email">
+                            <span class="error-text">Inserisci un'email valida</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Telefono *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="+39 333 123 4567" autocomplete="tel">
+                            <span class="error-text">Inserisci un numero valido</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sei proprietario dell'immobile? *</label>
+                        <div class="radio-group" role="radiogroup">
+                            <label class="radio-label">
+                                <input type="radio" name="proprietario" value="si" required> Sì
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="proprietario" value="no"> No
+                            </label>
+                        </div>
+                        <span class="error-text" id="propError">Seleziona una risposta</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="zona">Zona dell'immobile *</label>
+                            <select id="zona" name="zona" required>
+                                <option value="">Seleziona...</option>
+                                <option value="verona_centro">Verona centro storico</option>
+                                <option value="verona_provincia">Verona provincia</option>
+                                <option value="altro">Altra zona turistica</option>
+                            </select>
+                            <span class="error-text">Seleziona la zona</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="tempistica">Entro quando vorresti attivare? *</label>
+                            <select id="tempistica" name="tempistica" required>
+                                <option value="">Seleziona...</option>
+                                <option value="subito">Subito (0–30 giorni)</option>
+                                <option value="1-3mesi">1–3 mesi</option>
+                                <option value="3-6mesi">3–6 mesi</option>
+                                <option value="informativo">Solo informativo</option>
+                            </select>
+                            <span class="error-text">Seleziona la tempistica</span>
+                            <div class="soft-msg" id="softTiming">Le richieste con attivazione a breve hanno priorità nella valutazione.</div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">Acconsento al trattamento dei dati personali ai sensi del GDPR. *</label>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">Invia richiesta di analisi</button>
+                    <p class="form-note">Rispondiamo entro 24&ndash;48 ore lavorative.</p>
+
+                </form>
+            </div>
+
+            <!-- Calendly -->
+            <div class="calendly-card">
+                <h3 class="cal-head">Oppure prenota direttamente</h3>
+                <p class="cal-sub">Scegli giorno e orario per una call gratuita di valutazione.</p>
+                <div class="calendly-inline-widget"
+                     data-url="https://calendly.com/polverinorentals/30min?hide_gdpr_banner=1"
+                     style="min-width:280px;height:600px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-logo">
+            <img src="/images/logo.png" alt="Polverino Rentals" height="34">
+        </div>
+        <p>&copy; 2025 Polverino Rentals</p>
+    </div>
+</footer>
+
+<!-- ===== STICKY CTA MOBILE ===== -->
+<div class="sticky-cta" aria-hidden="true">
+    <a href="#contatto" class="btn-primary">Richiedi Analisi Personalizzata</a>
+</div>
+
+<!-- ===== MODAL SUCCESSO ===== -->
+<div class="modal-overlay" id="successModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+        <span class="modal-icon" aria-hidden="true">&#10003;</span>
+        <h3 id="modalTitle">Richiesta inviata</h3>
+        <p>Grazie. Ti contatteremo entro 24&ndash;48 ore lavorative per la call di valutazione.</p>
+        <button class="modal-close">Chiudi</button>
+    </div>
+</div>
+
+<script>
 (function () {
     'use strict';
 
-    /* ---------- Smooth scroll ---------- */
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
+    /* ── Smooth scroll ── */
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
             var target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                var offset = document.querySelector('.navbar').offsetHeight + 20;
-                var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top: top, behavior: 'smooth' });
-            }
+            if (!target) return;
+            e.preventDefault();
+            var offset = document.querySelector('.navbar').offsetHeight + 16;
+            window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
         });
     });
 
-    /* ---------- FAQ Accordion ---------- */
-    document.querySelectorAll('.faq-question').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            var item = this.parentElement;
-            var isOpen = item.classList.contains('open');
-            // Close all
-            document.querySelectorAll('.faq-item').forEach(function (i) {
-                i.classList.remove('open');
-                i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-            });
-            // Toggle current
-            if (!isOpen) {
-                item.classList.add('open');
-                this.setAttribute('aria-expanded', 'true');
+    /* ── Tempistica soft message ── */
+    var tempistica = document.getElementById('tempistica');
+    var softTiming = document.getElementById('softTiming');
+    if (tempistica) {
+        tempistica.addEventListener('change', function () {
+            if (this.value === 'informativo') {
+                softTiming.classList.add('visible');
+            } else {
+                softTiming.classList.remove('visible');
             }
         });
-    });
+    }
 
-    /* ---------- Form ---------- */
+    /* ── Form ── */
     var form = document.getElementById('leadForm');
     var submitBtn = document.getElementById('submitBtn');
 
-    /* ---------- Validation ---------- */
-    function validateEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    function validatePhone(phone) {
-        var digits = phone.replace(/\D/g, '');
-        return digits.length >= 8;
-    }
+    function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+    function validatePhone(v) { return v.replace(/\D/g,'').length >= 8; }
 
     function clearErrors() {
-        form.querySelectorAll('.form-group').forEach(function (g) {
-            g.classList.remove('error');
-        });
+        form.querySelectorAll('.form-group').forEach(function (g) { g.classList.remove('error'); });
         var cb = form.querySelector('.checkbox-group');
         if (cb) cb.style.outline = 'none';
     }
 
-    function showError(fieldId, message) {
-        var field = document.getElementById(fieldId);
-        if (!field) return;
-        var group = field.closest('.form-group');
-        if (group) {
-            group.classList.add('error');
-            var errEl = group.querySelector('.error-text');
-            if (errEl) errEl.textContent = message;
-        }
+    function showError(id, msg) {
+        var el = document.getElementById(id) || form.querySelector('[name="' + id + '"]');
+        if (!el) return;
+        var grp = el.closest('.form-group');
+        if (!grp) return;
+        grp.classList.add('error');
+        var et = grp.querySelector('.error-text');
+        if (et && msg) et.textContent = msg;
     }
 
-    /* ---------- Form submit ---------- */
     if (form) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             clearErrors();
 
-            var valid = true;
+            var ok = true;
 
-            // Nome
             var nome = document.getElementById('nome').value.trim();
-            if (!nome) { showError('nome', 'Inserisci il nome'); valid = false; }
+            if (!nome) { showError('nome'); ok = false; }
 
-            // Cognome
             var cognome = document.getElementById('cognome').value.trim();
-            if (!cognome) { showError('cognome', 'Inserisci il cognome'); valid = false; }
+            if (!cognome) { showError('cognome'); ok = false; }
 
-            // Email
             var email = document.getElementById('email').value.trim();
-            if (!validateEmail(email)) { showError('email', 'Inserisci un\'email valida'); valid = false; }
+            if (!validateEmail(email)) { showError('email', 'Inserisci un\'email valida'); ok = false; }
 
-            // Telefono
             var tel = document.getElementById('telefono').value.trim();
-            if (!validatePhone(tel)) { showError('telefono', 'Inserisci un numero valido (min 8 cifre)'); valid = false; }
+            if (!validatePhone(tel)) { showError('telefono', 'Inserisci un numero valido (min 8 cifre)'); ok = false; }
 
-            // Privacy
+            var prop = document.querySelector('input[name="proprietario"]:checked');
+            if (!prop) {
+                var propGroup = document.querySelector('input[name="proprietario"]').closest('.form-group');
+                if (propGroup) propGroup.classList.add('error');
+                ok = false;
+            }
+
+            var zona = document.getElementById('zona').value;
+            if (!zona) { showError('zona'); ok = false; }
+
+            var temp = document.getElementById('tempistica').value;
+            if (!temp) { showError('tempistica'); ok = false; }
+
             var privacy = document.getElementById('privacy');
             if (!privacy.checked) {
                 var pg = privacy.closest('.checkbox-group');
-                if (pg) pg.style.outline = '2px solid ' + getComputedStyle(document.documentElement).getPropertyValue('--danger');
-                valid = false;
+                if (pg) pg.style.outline = '2px solid var(--danger)';
+                ok = false;
             }
 
-            if (!valid) return;
+            if (!ok) return;
 
-            // Collect data
             var data = {
                 nome: nome,
                 cognome: cognome,
-                telefono: tel,
                 email: email,
+                telefono: tel,
+                proprietario: prop ? prop.value : '',
+                zona: zona,
+                tempistica: temp,
                 tipo_form: 'landing_analisi'
             };
 
-            console.log('Lead:', data);
-
-            // Invia al webhook
             fetch('https://hook.eu1.make.com/nvj5cnh7fpg78yn9hcmfd93kvzjk3jfz', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
-            }).catch(function (err) {
-                console.error('Errore invio:', err);
-            });
+            }).catch(function (err) { console.error('Webhook error:', err); });
 
-            // Show modal
             document.getElementById('successModal').classList.add('active');
             form.reset();
+            softTiming.classList.remove('visible');
         });
     }
 
-    /* ---------- Modal close ---------- */
+    /* ── Modal close ── */
     var modal = document.getElementById('successModal');
     if (modal) {
-        modal.querySelector('.modal-close').addEventListener('click', function () {
-            modal.classList.remove('active');
-        });
-        modal.addEventListener('click', function (e) {
-            if (e.target === modal) modal.classList.remove('active');
-        });
+        modal.querySelector('.modal-close').addEventListener('click', function () { modal.classList.remove('active'); });
+        modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('active'); });
     }
 
 })();
-    </script>
+</script>
 </body>
 </html>
