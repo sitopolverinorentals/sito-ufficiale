@@ -830,105 +830,16 @@ h1,h2,h3,h4 {
     </div>
 </section>
 
-<!-- ===== FORM + CALENDLY ===== -->
+<!-- ===== CALENDLY ===== -->
 <section class="section-form section-padding" id="contatto">
     <div class="container">
-        <h2 class="section-title">Richiedi l'Analisi Personalizzata</h2>
-        <p class="section-lead">Compila il modulo oppure prenota direttamente una call. Rispondiamo entro 24&ndash;48 ore lavorative.</p>
-        <div class="form-calendly-grid">
-
-            <!-- Form -->
-            <div class="form-card">
-                <h3 class="form-head">Lascia i tuoi dati</h3>
-                <p class="form-sub">Ti ricontattiamo noi per fissare la call di valutazione.</p>
-
-                <form id="leadForm" novalidate>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nome">Nome *</label>
-                            <input type="text" id="nome" name="nome" required placeholder="Il tuo nome" autocomplete="given-name">
-                            <span class="error-text">Inserisci il nome</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="cognome">Cognome *</label>
-                            <input type="text" id="cognome" name="cognome" required placeholder="Il tuo cognome" autocomplete="family-name">
-                            <span class="error-text">Inserisci il cognome</span>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required placeholder="tua@email.com" autocomplete="email">
-                            <span class="error-text">Inserisci un'email valida</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Telefono *</label>
-                            <input type="tel" id="telefono" name="telefono" required placeholder="+39 333 123 4567" autocomplete="tel">
-                            <span class="error-text">Inserisci un numero valido</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Sei proprietario dell'immobile? *</label>
-                        <div class="radio-group" role="radiogroup">
-                            <label class="radio-label">
-                                <input type="radio" name="proprietario" value="si" required> Sì
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="proprietario" value="no"> No
-                            </label>
-                        </div>
-                        <span class="error-text" id="propError">Seleziona una risposta</span>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="zona">Zona dell'immobile *</label>
-                            <select id="zona" name="zona" required>
-                                <option value="">Seleziona...</option>
-                                <option value="verona_centro">Verona centro storico</option>
-                                <option value="verona_provincia">Verona provincia</option>
-                                <option value="altro">Altra zona turistica</option>
-                            </select>
-                            <span class="error-text">Seleziona la zona</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="tempistica">Entro quando vorresti attivare? *</label>
-                            <select id="tempistica" name="tempistica" required>
-                                <option value="">Seleziona...</option>
-                                <option value="subito">Subito (0–30 giorni)</option>
-                                <option value="1-3mesi">1–3 mesi</option>
-                                <option value="3-6mesi">3–6 mesi</option>
-                                <option value="informativo">Solo informativo</option>
-                            </select>
-                            <span class="error-text">Seleziona la tempistica</span>
-                            <div class="soft-msg" id="softTiming">Le richieste con attivazione a breve hanno priorità nella valutazione.</div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="privacy" name="privacy" required>
-                        <label for="privacy">Acconsento al trattamento dei dati personali ai sensi del GDPR. *</label>
-                    </div>
-
-                    <button type="submit" class="btn-submit" id="submitBtn">Invia richiesta di analisi</button>
-                    <p class="form-note">Rispondiamo entro 24&ndash;48 ore lavorative.</p>
-
-                </form>
-            </div>
-
-            <!-- Calendly -->
-            <div class="calendly-card">
-                <h3 class="cal-head">Oppure prenota direttamente</h3>
-                <p class="cal-sub">Scegli giorno e orario per una call gratuita di valutazione.</p>
-                <div class="calendly-inline-widget"
-                     data-url="https://calendly.com/polverinorentals/30min?hide_gdpr_banner=1"
-                     style="min-width:280px;height:600px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            </div>
-
+        <h2 class="section-title">Prenota la tua analisi gratuita</h2>
+        <p class="section-lead">Scegli giorno e orario per una call gratuita di valutazione. Nessun impegno.</p>
+        <div class="calendly-card" style="max-width:760px;margin:0 auto;">
+            <div class="calendly-inline-widget"
+                 data-url="https://calendly.com/polverinorentals/30min?hide_gdpr_banner=1"
+                 style="min-width:280px;height:660px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
     </div>
 </section>
