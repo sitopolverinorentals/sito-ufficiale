@@ -203,11 +203,25 @@ h1,h2,h3,h4 {
     font-weight: 600;
     color: var(--gold);
     margin-bottom: 20px;
-    padding: 14px 20px;
+    padding: 16px 20px;
     border: 1px solid rgba(240,208,144,0.28);
     border-radius: var(--radius-sm);
     background: rgba(240,208,144,0.06);
-    line-height: 1.6;
+    line-height: 1.7;
+}
+
+.scarcity-badge {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    border-radius: 4px;
+    padding: 5px 12px;
+    margin-bottom: 10px;
+    width: fit-content;
 }
 
 .hero-microcopy {
@@ -721,7 +735,10 @@ h1,h2,h3,h4 {
         <div class="hero-inner">
             <div class="hero-text">
                 <h1>Il tuo appartamento a Verona probabilmente sta rendendo molto <em>meno di quanto potrebbe.</em></h1>
-                <p class="hero-guarantee">Se dopo l'analisi non riusciamo a portare il tuo immobile a quella rendita, lavoriamo gratis fino a quando non ci arriviamo.</p>
+                <p class="hero-guarantee">
+                    <span class="scarcity-badge">⚠ Solo 5 posti disponibili questo mese</span>
+                    Se dopo l'analisi non riusciamo a portare il tuo immobile a quella rendita, lavoriamo gratis fino a quando non ci arriviamo.
+                </p>
                 <p class="hero-sub">Un bilocale in centro storico gestito da noi ha generato <strong>65.000&euro;</strong> di prenotazioni. Scopri quanto lasci sul tavolo ogni mese con l'affitto tradizionale — analisi manuale gratuita, risultati reali.</p>
                 <ul class="hero-bullets">
                     <li>Tu non fai nulla — gestiamo ospiti, pulizie, check-in e comunicazioni</li>
