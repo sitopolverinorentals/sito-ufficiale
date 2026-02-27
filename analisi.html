@@ -332,6 +332,69 @@ h1,h2,h3,h4 {
     margin-top: 28px;
 }
 
+/* ── Garanzia ── */
+.section-garanzia {
+    background: var(--navy-2);
+    border-top: 1px solid rgba(240,208,144,0.08);
+    border-bottom: 1px solid rgba(240,208,144,0.08);
+}
+
+.garanzia-card {
+    max-width: 780px;
+    margin: 0 auto;
+    background: rgba(240,208,144,0.04);
+    border: 1px solid rgba(240,208,144,0.2);
+    border-radius: var(--radius);
+    padding: 56px 52px;
+    box-shadow: var(--glow);
+    text-align: center;
+}
+
+.garanzia-title {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 28px;
+    line-height: 1.25;
+}
+
+.garanzia-text {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.garanzia-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 36px;
+    text-align: left;
+}
+
+.garanzia-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 0.97rem;
+    color: var(--cream);
+    font-weight: 600;
+}
+
+.garanzia-icon {
+    color: var(--gold);
+    font-size: 1.1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+    .garanzia-card { padding: 36px 24px; }
+    .garanzia-title { font-size: 1.6rem; }
+}
+
 /* ── Qualificazione ── */
 .section-qualify {
     background: var(--navy);
@@ -786,6 +849,42 @@ h1,h2,h3,h4 {
             </div>
             <p class="case-strategy"><strong>Strategia applicata:</strong> foto professionali, ottimizzazione annuncio, pricing dinamico su eventi e stagionalità, costruzione recensioni, gestione operativa completa.</p>
             <p class="case-note">I risultati variano in base a zona, tipologia e stagionalità. L'analisi permette di stimare il potenziale reale del tuo immobile.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== GARANZIA ===== -->
+<section class="section-garanzia section-padding" id="garanzia">
+    <div class="container">
+        <div class="garanzia-card">
+            <span class="section-label">La nostra regola</span>
+            <h2 class="garanzia-title">O raggiungiamo i risultati, o lavoriamo gratis.</h2>
+            <p class="garanzia-text">
+                Non è uno slogan. È la regola su cui abbiamo costruito ogni collaborazione.
+                Prima di accettare un immobile facciamo un'analisi manuale seria: dati reali di mercato,
+                comparabili locali, stagionalità, eventi. Se vediamo che il potenziale c'è, lo diciamo.
+                Se non c'è, lo diciamo lo stesso — e non perdiamo il tuo tempo.
+            </p>
+            <p class="garanzia-text">
+                Quando invece partiamo, partiamo con la certezza di poter ottenere risultati concreti.
+                Ed è per questo che ci permettiamo di fare questa promessa: se non portiamo il tuo immobile
+                alla rendita stimata nell'analisi, continuiamo a lavorare senza chiederti nulla —
+                finché non ci arriviamo.
+            </p>
+            <div class="garanzia-bottom">
+                <div class="garanzia-item">
+                    <span class="garanzia-icon">✓</span>
+                    <span>Analisi manuale, non automatica</span>
+                </div>
+                <div class="garanzia-item">
+                    <span class="garanzia-icon">✓</span>
+                    <span>Accettiamo solo immobili con potenziale reale</span>
+                </div>
+                <div class="garanzia-item">
+                    <span class="garanzia-icon">✓</span>
+                    <span>Se non otteniamo i risultati, lavoriamo gratis</span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
