@@ -1,0 +1,15 @@
+{
+  "name": "sito-polverino-rentals",
+  "version": "1.0.0",
+  "description": "Questo repository contiene un sito statico (index.html + immagini). Qui trovi le istruzioni per mettere il progetto su GitHub e deployarlo con Vercel.",
+  "main": "reviews.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "openai": "^6.29.0"
+  }
+}

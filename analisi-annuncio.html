@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il tuo annuncio Airbnb sta perdendo prenotazioni? | Polverino Rentals</title>
+    <meta name="description" content="Analizziamo il tuo annuncio Airbnb e un consulente ti chiama entro 24 ore per mostrarti come migliorarlo. Gratuito, senza impegno.">
+
+    <meta property="og:title" content="Il tuo annuncio Airbnb sta perdendo prenotazioni? | Polverino Rentals">
+    <meta property="og:description" content="Analizziamo il tuo annuncio e un consulente ti chiama entro 24h per aiutarti a ottenere più prenotazioni.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+
+    <!-- Meta Pixel (deferred) -->
+    <script>
+    setTimeout(function(){
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '715281194970492');
+        fbq('track', 'PageView');
+    }, 0);
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=715281194970492&ev=PageView&noscript=1"
+    /></noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+:root {
+    --bg:         #0a0a1a;
+    --bg-2:       #0f0f24;
+    --bg-card:    #141432;
+    --primary:    #6366f1;
+    --primary-light: #818cf8;
+    --primary-dark: #4f46e5;
+    --accent:     #22d3ee;
+    --white:      #ffffff;
+    --gray-300:   #cbd5e1;
+    --gray-400:   #94a3b8;
+    --gray-500:   #64748b;
+    --danger:     #ef4444;
+    --success:    #22c55e;
+    --radius:     16px;
+    --radius-sm:  10px;
+    --t:          0.25s ease;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--gray-300);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--primary-light); text-decoration: none; transition: color var(--t); }
+a:hover { color: var(--accent); }
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--white);
+}
+
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Navbar ── */
+.navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    background: rgba(10,10,26,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 16px 0;
+}
+.navbar .container { display: flex; justify-content: space-between; align-items: center; }
+.navbar-logo img { height: 40px; width: auto; }
+.navbar-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(34,211,238,0.08);
+    border: 1px solid rgba(34,211,238,0.15);
+    padding: 6px 14px;
+    border-radius: 50px;
+}
+.navbar-badge .pulse {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+/* ── Hero ── */
+.hero {
+    padding: 132px 0 72px;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 30%;
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -300px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(34,211,238,0.06) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    gap: 56px;
+    align-items: center;
+}
+
+.hero-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-extras {
+    margin-top: 32px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(34,211,238,0.1);
+    border: 1px solid rgba(34,211,238,0.2);
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+}
+.hero-badge svg { width: 14px; height: 14px; }
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    margin-bottom: 20px;
+}
+.hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--primary-light), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-sub {
+    font-size: 1.08rem;
+    color: var(--gray-400);
+    margin-bottom: 32px;
+    line-height: 1.75;
+    max-width: 520px;
+}
+
+/* Platforms */
+.hero-platforms {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+.hero-platforms span {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+}
+.platform-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gray-300);
+    transition: all var(--t);
+}
+.platform-logo:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); }
+.platform-logo img { height: 18px; width: auto; }
+
+/* AI features */
+.hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.hero-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: var(--gray-300);
+}
+.hero-feature .feat-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+/* ── Form card ── */
+.form-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    position: relative;
+}
+.form-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 20%; right: 20%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+    border-radius: 2px;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+.form-header h2 { font-size: 1.25rem; }
+.form-header .ai-badge {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: linear-gradient(135deg, var(--primary-light), var(--accent));
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.form-sub {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    margin-bottom: 28px;
+}
+
+.form-group { margin-bottom: 18px; }
+.form-group label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--gray-300);
+    margin-bottom: 6px;
+}
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-sm);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color var(--t);
+}
+.form-group input::placeholder { color: var(--gray-500); }
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+.form-group.error input { border-color: var(--danger); }
+.error-text { font-size: 0.75rem; color: var(--danger); margin-top: 4px; display: none; }
+.form-group.error .error-text { display: block; }
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.url-input-wrap { position: relative; }
+.url-input-wrap input { padding-left: 44px; }
+.url-input-wrap .url-icon {
+    position: absolute;
+    left: 14px; top: 50%;
+    transform: translateY(-50%);
+    width: 20px; height: 20px;
+    color: var(--gray-500);
+}
+
+.btn-submit {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all var(--t);
+    box-shadow: 0 4px 20px rgba(99,102,241,0.35);
+    margin-top: 6px;
+}
+.btn-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(99,102,241,0.45);
+}
+.btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+.btn-submit svg { width: 18px; height: 18px; }
+
+.form-note {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--gray-500);
+    margin-top: 12px;
+}
+
+/* ── Loading state ── */
+.loading-state {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+}
+.loading-state.active { display: block; }
+
+.loading-brain {
+    width: 64px; height: 64px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(34,211,238,0.1));
+    border: 2px solid rgba(99,102,241,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    animation: brainPulse 1.5s ease infinite;
+}
+@keyframes brainPulse {
+    0%, 100% { transform: scale(1); border-color: rgba(99,102,241,0.3); }
+    50% { transform: scale(1.05); border-color: rgba(34,211,238,0.5); }
+}
+
+.loading-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.loading-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    max-width: 280px;
+    margin: 0 auto;
+}
+.loading-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    transition: color 0.4s ease;
+}
+.loading-step.active { color: var(--accent); }
+.loading-step.done { color: var(--success); }
+.loading-step .step-icon {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    transition: all 0.4s ease;
+}
+.loading-step.active .step-icon {
+    border-color: var(--accent);
+    background: rgba(34,211,238,0.1);
+    animation: spin 1s linear infinite;
+}
+.loading-step.done .step-icon {
+    border-color: var(--success);
+    background: rgba(34,197,94,0.15);
+    color: var(--success);
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Error state ── */
+.error-state {
+    display: none;
+    text-align: center;
+    padding: 32px 20px;
+}
+.error-state.active { display: block; }
+.error-state p { color: var(--danger); font-size: 0.93rem; margin-bottom: 16px; }
+.btn-retry {
+    font-family: 'Poppins', sans-serif;
+    background: transparent;
+    color: var(--primary-light);
+    border: 1px solid var(--primary);
+    padding: 10px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all var(--t);
+}
+.btn-retry:hover { background: rgba(99,102,241,0.1); }
+
+/* ── Logos strip ── */
+.logos-strip {
+    background: var(--bg-2);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 36px 0;
+}
+.logos-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+.logos-inner span {
+    font-size: 0.78rem;
+    color: var(--gray-500);
+    white-space: nowrap;
+}
+.ota-logo {
+    height: 32px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity var(--t);
+    filter: brightness(0) invert(1);
+}
+.ota-logo:hover { opacity: 1; }
+
+/* ── How it works ── */
+.section-how {
+    background: var(--bg);
+    padding: 88px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.section-title {
+    font-size: 2.25rem;
+    text-align: center;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+.section-lead {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--gray-400);
+    max-width: 500px;
+    margin: 0 auto 52px;
+    line-height: 1.75;
+}
+
+.how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 940px;
+    margin: 0 auto;
+    position: relative;
+}
+/* Connecting line */
+.how-grid::before {
+    content: '';
+    position: absolute;
+    top: 40px; left: 16%; right: 16%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(99,102,241,0.3), rgba(34,211,238,0.3));
+    z-index: 0;
+}
+
+.how-card {
+    text-align: center;
+    padding: 36px 28px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    position: relative;
+    z-index: 1;
+    transition: all var(--t);
+}
+.how-card:hover {
+    border-color: rgba(99,102,241,0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+.how-icon {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(34,211,238,0.08));
+    border: 1px solid rgba(99,102,241,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 20px;
+}
+
+.how-card .step-num {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary-light);
+    margin-bottom: 8px;
+    display: block;
+}
+.how-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.how-card p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.65; }
+
+/* ── Properties showcase ── */
+.section-showcase {
+    background: var(--bg-2);
+    padding: 88px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.showcase-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: var(--bg-card);
+    transition: all var(--t);
+}
+.showcase-card:hover {
+    border-color: rgba(99,102,241,0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.showcase-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.showcase-body { padding: 20px; }
+.showcase-body h3 { font-size: 0.95rem; margin-bottom: 4px; }
+.showcase-body .showcase-loc {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    margin-bottom: 14px;
+}
+.showcase-stats {
+    display: flex;
+    gap: 16px;
+}
+.showcase-stat {
+    display: flex;
+    flex-direction: column;
+}
+.showcase-stat .s-val {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+.showcase-stat .s-lbl {
+    font-size: 0.72rem;
+    color: var(--gray-500);
+}
+
+/* ── Recensioni ── */
+.section-reviews {
+    background: var(--bg);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 88px 0;
+}
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 860px;
+    margin: 0 auto;
+}
+.review-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    transition: all var(--t);
+    display: flex;
+    flex-direction: column;
+}
+.review-card:hover {
+    border-color: rgba(99,102,241,0.2);
+    background: rgba(99,102,241,0.04);
+}
+.review-stars {
+    color: #fbbf24;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+.review-text {
+    font-size: 0.9rem;
+    color: var(--gray-300);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 20px;
+}
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.review-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid rgba(99,102,241,0.25);
+}
+.review-info strong {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--white);
+}
+.review-info span {
+    font-size: 0.78rem;
+    color: var(--gray-500);
+}
+.review-highlight {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* ── Stats strip ── */
+.stats-strip {
+    background: var(--bg);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 64px 0;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.stat-card {
+    text-align: center;
+    padding: 28px 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius);
+    background: rgba(255,255,255,0.02);
+}
+.stat-card .val {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--white);
+    display: block;
+    margin-bottom: 4px;
+}
+.stat-card .lbl {
+    font-size: 0.82rem;
+    color: var(--gray-500);
+}
+
+/* ── Results ── */
+.results-section {
+    display: none;
+    background: var(--bg-2);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 80px 0;
+}
+.results-section.active { display: block; }
+
+.results-card {
+    max-width: 800px;
+    margin: 0 auto 48px;
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 48px 44px;
+    position: relative;
+}
+.results-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 15%; right: 15%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--success), var(--accent), transparent);
+    border-radius: 2px;
+}
+
+.results-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+.results-header h2 { font-size: 1.5rem; }
+.results-header .ai-tag {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: linear-gradient(135deg, var(--success), var(--accent));
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+.results-meta {
+    font-size: 0.82rem;
+    color: var(--gray-500);
+    margin-bottom: 32px;
+    word-break: break-all;
+}
+
+.results-body h2 {
+    font-size: 1.15rem;
+    color: var(--accent);
+    margin: 28px 0 12px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.results-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.results-body p { font-size: 0.93rem; color: var(--gray-300); line-height: 1.75; margin-bottom: 12px; }
+.results-body ol, .results-body ul { margin: 8px 0 16px 20px; font-size: 0.93rem; color: var(--gray-300); line-height: 1.75; }
+.results-body li { margin-bottom: 6px; }
+.results-body strong { color: var(--white); }
+
+/* ── CTA after results ── */
+.results-cta {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(34,211,238,0.05));
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: var(--radius);
+    padding: 52px 44px;
+}
+.results-cta h2 { font-size: 1.5rem; margin-bottom: 16px; }
+.results-cta h2 em { font-style: normal; color: var(--accent); }
+.results-cta p { font-size: 0.95rem; color: var(--gray-400); margin-bottom: 24px; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+
+.cta-alert {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(239,68,68,0.08);
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-bottom: 24px;
+    font-size: 0.88rem;
+    color: #f87171;
+}
+.cta-alert strong { color: #fca5a5; }
+.cta-alert svg { stroke: #f87171; flex-shrink: 0; }
+
+.cta-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 360px;
+    margin: 0 auto 28px;
+    text-align: left;
+}
+.cta-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--gray-300);
+}
+.cta-check-icon {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: rgba(34,211,238,0.1);
+    border: 1px solid rgba(34,211,238,0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.results-cta .cta-note { font-size: 0.82rem; color: var(--gray-500); margin-top: 0; }
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 16px 36px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all var(--t);
+    box-shadow: 0 4px 24px rgba(99,102,241,0.35);
+}
+.btn-primary:hover {
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(99,102,241,0.45);
+}
+
+/* ── Footer ── */
+.footer {
+    background: var(--bg);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 40px 0;
+}
+.footer .container { display: flex; align-items: center; justify-content: space-between; }
+.footer-logo img { height: 32px; width: auto; }
+.footer p { font-size: 0.82rem; color: var(--gray-500); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .hero { padding: 112px 0 48px; }
+    .hero-layout { grid-template-columns: 1fr; gap: 24px; }
+    .hero-left { text-align: center; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero h1 { font-size: 2rem; }
+    .hero-extras { display: none; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+
+    .logos-inner { gap: 24px; }
+    .logo-item { font-size: 0.95rem; }
+
+    .how-grid { grid-template-columns: 1fr; max-width: 380px; }
+    .how-grid::before { display: none; }
+    .section-how { padding: 56px 0; }
+
+    .showcase-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .section-showcase { padding: 56px 0; }
+
+    .reviews-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .section-reviews { padding: 56px 0; }
+
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-strip { padding: 48px 0; }
+    .stat-card .val { font-size: 1.7rem; }
+
+    .results-card { padding: 28px 20px; }
+    .results-cta { padding: 36px 24px; }
+
+    .footer .container { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.7rem; }
+    .form-card { padding: 28px 20px; }
+}
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="container">
+        <a href="/" class="navbar-logo" aria-label="Polverino Rentals">
+            <img src="/images/logo.png" alt="Polverino Rentals" width="120" height="40">
+        </a>
+        <div class="navbar-badge">
+            <span class="pulse"></span>
+            AI Audit Tool
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-layout">
+            <div class="hero-left">
+                <span class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14a4 4 0 0 1 4 4v2H4v-2a4 4 0 0 1 4-4"/><circle cx="12" cy="6" r="1"/></svg>
+                    Analisi Professionale
+                </span>
+                <h1>Il tuo annuncio Airbnb sta perdendo <em>prenotazioni?</em></h1>
+                <p class="hero-sub">Analizziamo il tuo annuncio e un nostro consulente ti chiama entro 24 ore per mostrarti esattamente cosa migliorare e come aumentare le prenotazioni.</p>
+                <div class="hero-extras">
+                    <div class="hero-platforms">
+                        <span>Funziona con:</span>
+                        <div class="platform-logo">
+                            <img src="/images/Loghi%20OTA/Airbnb_Logo_B%C3%A9lo.svg.png" alt="Airbnb" height="18">
+                        </div>
+                        <div class="platform-logo">
+                            <img src="/images/Loghi%20OTA/Booking.com_Logo.png" alt="Booking.com" height="18">
+                        </div>
+                        <div class="platform-logo">
+                            <img src="/images/Loghi%20OTA/Tripadvisor_lockup_vertical_secondary_registered.png" alt="Tripadvisor" height="18">
+                        </div>
+                    </div>
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <div class="feat-icon">&#9989;</div>
+                            <span><strong>500+</strong> annunci analizzati in tutta Italia</span>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="feat-icon">&#128200;</div>
+                            <span><strong>+38%</strong> di revenue medio dopo l'ottimizzazione</span>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="feat-icon">&#11088;</div>
+                            <span><strong>92%</strong> tasso di occupazione medio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-card" id="formCard">
+                <div class="form-header">
+                    <h2>Analizza il tuo annuncio</h2>
+                    <span class="ai-badge">AI Powered</span>
+                </div>
+                <p class="form-sub">Analisi immediata + chiamata consulente entro 24h</p>
+                <form id="analyzeForm" novalidate>
+                    <div class="form-group">
+                        <label for="airbnb-url">Link del tuo annuncio</label>
+                        <div class="url-input-wrap">
+                            <svg class="url-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                            <input type="url" id="airbnb-url" name="url" placeholder="https://www.airbnb.it/rooms/..." required>
+                        </div>
+                        <div class="error-text">Inserisci un link Airbnb valido</div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" placeholder="Mario" required>
+                            <div class="error-text">Inserisci il tuo nome</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cognome">Cognome</label>
+                            <input type="text" id="cognome" name="cognome" placeholder="Rossi" required>
+                            <div class="error-text">Inserisci il tuo cognome</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="mario@esempio.it" required>
+                        <div class="error-text">Inserisci un'email valida</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Telefono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+39 333 1234567" required>
+                        <div class="error-text">Inserisci un numero valido</div>
+                    </div>
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M5 10l7 7 7-7"/></svg>
+                        Lancia l'analisi AI &rarr;
+                    </button>
+                    <p class="form-note">100% gratuito &middot; Un consulente ti chiama entro 24h &middot; Nessun impegno</p>
+                </form>
+                <div class="loading-state" id="loadingState">
+                    <div class="loading-brain">&#129504;</div>
+                    <p class="loading-title">AI al lavoro sul tuo annuncio...</p>
+                    <ul class="loading-steps">
+                        <li class="loading-step active" id="step1">
+                            <span class="step-icon">&#8635;</span>
+                            <span>Lettura dell'annuncio</span>
+                        </li>
+                        <li class="loading-step" id="step2">
+                            <span class="step-icon">&#8635;</span>
+                            <span>Analisi titolo e descrizione</span>
+                        </li>
+                        <li class="loading-step" id="step3">
+                            <span class="step-icon">&#8635;</span>
+                            <span>Individuazione criticit&agrave;</span>
+                        </li>
+                        <li class="loading-step" id="step4">
+                            <span class="step-icon">&#10003;</span>
+                            <span>Preparazione report per il consulente</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="error-state" id="errorState">
+                    <p id="errorMsg">Errore durante l'analisi.</p>
+                    <button class="btn-retry" id="retryBtn">Riprova</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== LOGOS STRIP ===== -->
+<section class="logos-strip">
+    <div class="container">
+        <div class="logos-inner">
+            <span>Analizziamo annunci su:</span>
+            <img class="ota-logo" src="/images/Loghi%20OTA/Airbnb_Logo_B%C3%A9lo.svg.png" alt="Airbnb" height="32" loading="lazy">
+            <img class="ota-logo" src="/images/Loghi%20OTA/Booking.com_Logo.png" alt="Booking.com" height="32" loading="lazy">
+            <img class="ota-logo" src="/images/Loghi%20OTA/Tripadvisor_lockup_vertical_secondary_registered.png" alt="Tripadvisor" height="36" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="section-how">
+    <div class="container">
+        <h2 class="section-title">Come funziona</h2>
+        <p class="section-lead">Tre step per migliorare il tuo annuncio e ottenere pi&ugrave; prenotazioni.</p>
+        <div class="how-grid">
+            <div class="how-card">
+                <div class="how-icon">&#128279;</div>
+                <span class="step-num">Step 1</span>
+                <h3>Incolla il link</h3>
+                <p>Inserisci il link del tuo annuncio Airbnb o Booking e i tuoi dati di contatto.</p>
+            </div>
+            <div class="how-card">
+                <div class="how-icon">&#129504;</div>
+                <span class="step-num">Step 2</span>
+                <h3>L'AI trova le criticit&agrave;</h3>
+                <p>La nostra AI analizza titolo, descrizione, pricing e posizionamento e individua i punti deboli.</p>
+            </div>
+            <div class="how-card">
+                <div class="how-icon">&#128222;</div>
+                <span class="step-num">Step 3</span>
+                <h3>Il consulente ti chiama</h3>
+                <p>Entro 24 ore un nostro esperto ti chiama per mostrarti come risolvere le criticit&agrave; e aumentare le prenotazioni.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SHOWCASE ===== -->
+<section class="section-showcase">
+    <div class="container">
+        <h2 class="section-title">I nostri immobili a Verona</h2>
+        <p class="section-lead">Appartamenti reali gestiti da noi a Verona e provincia. Risultati verificati.</p>
+        <div class="showcase-grid">
+            <div class="showcase-card">
+                <img class="showcase-img" src="/images/appartamenti/assago.jpg" alt="Bilocale Verona Centro Storico" loading="lazy">
+                <div class="showcase-body">
+                    <h3>Bilocale Centro Storico</h3>
+                    <p class="showcase-loc">Verona, Piazza Erbe</p>
+                    <div class="showcase-stats">
+                        <div class="showcase-stat">
+                            <span class="s-val">65k&euro;</span>
+                            <span class="s-lbl">Revenue/anno</span>
+                        </div>
+                        <div class="showcase-stat">
+                            <span class="s-val">92%</span>
+                            <span class="s-lbl">Occupazione</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <img class="showcase-img" src="/images/appartamenti/ultima.jpg" alt="Casa Vacanze Verona" loading="lazy">
+                <div class="showcase-body">
+                    <h3>Casa Vacanze con Giardino</h3>
+                    <p class="showcase-loc">Verona, Borgo Trento</p>
+                    <div class="showcase-stats">
+                        <div class="showcase-stat">
+                            <span class="s-val">48k&euro;</span>
+                            <span class="s-lbl">Revenue/anno</span>
+                        </div>
+                        <div class="showcase-stat">
+                            <span class="s-val">88%</span>
+                            <span class="s-lbl">Occupazione</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <img class="showcase-img" src="/images/sfondi/verona.jpg" alt="Appartamento Verona San Zeno" loading="lazy">
+                <div class="showcase-body">
+                    <h3>Trilocale Vista Arena</h3>
+                    <p class="showcase-loc">Verona, San Zeno</p>
+                    <div class="showcase-stats">
+                        <div class="showcase-stat">
+                            <span class="s-val">72k&euro;</span>
+                            <span class="s-lbl">Revenue/anno</span>
+                        </div>
+                        <div class="showcase-stat">
+                            <span class="s-val">91%</span>
+                            <span class="s-lbl">Occupazione</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== RECENSIONI ===== -->
+<section class="section-reviews">
+    <div class="container">
+        <h2 class="section-title">Dopo l'analisi, i risultati parlano</h2>
+        <p class="section-lead">Proprietari che hanno migliorato il loro annuncio grazie alla nostra analisi.</p>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">&ldquo;Dopo l'analisi ho scoperto che il mio titolo era completamente sbagliato. Il consulente mi ha aiutato a riscriverlo e <span class="review-highlight">le prenotazioni sono aumentate del 40% in un mese</span>. Non avrei mai pensato che un titolo facesse tanta differenza.&rdquo;</p>
+                <div class="review-author">
+                    <img class="review-avatar" src="/images/clienti/stefano.jpg" alt="Stefano B." width="44" height="44" loading="lazy">
+                    <div class="review-info">
+                        <strong>Stefano B.</strong>
+                        <span>Appartamento Centro Storico, Verona</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">&ldquo;L'analisi ha evidenziato che il mio pricing era troppo basso in alta stagione e troppo alto in bassa. Con la strategia di pricing dinamico che mi hanno consigliato, <span class="review-highlight">ho guadagnato 8.000&euro; in pi&ugrave; in 6 mesi</span>.&rdquo;</p>
+                <div class="review-author">
+                    <img class="review-avatar" src="/images/clienti/lucia.jpg" alt="Lucia T." width="44" height="44" loading="lazy">
+                    <div class="review-info">
+                        <strong>Lucia T.</strong>
+                        <span>Villa con Giardino, Lago di Garda</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">&ldquo;Pensavo che il mio annuncio fosse perfetto, ma l'AI ha trovato 7 criticit&agrave;. Il consulente mi ha chiamato il giorno dopo e mi ha spiegato cosa cambiare. <span class="review-highlight">Ora ho il 92% di occupazione</span>, prima ero al 60%.&rdquo;</p>
+                <div class="review-author">
+                    <img class="review-avatar" src="/images/clienti/giovanni.jpg" alt="Giovanni M." width="44" height="44" loading="lazy">
+                    <div class="review-info">
+                        <strong>Giovanni M.</strong>
+                        <span>Trilocale San Zeno, Verona</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">&ldquo;La cosa che mi ha colpito &egrave; stata la velocit&agrave;: analisi immediata e chiamata il giorno dopo. Il consulente conosceva gi&agrave; il mio annuncio e sapeva esattamente cosa migliorare. <span class="review-highlight">Professionalit&agrave; al top</span>.&rdquo;</p>
+                <div class="review-author">
+                    <img class="review-avatar" src="/images/clienti/chiara.jpg" alt="Chiara D." width="44" height="44" loading="lazy">
+                    <div class="review-info">
+                        <strong>Chiara D.</strong>
+                        <span>Attico Borgo Trento, Verona</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">&ldquo;Avevo le foto fatte col telefono e una descrizione copiata da un altro annuncio. Dopo la consulenza ho rifatto tutto e <span class="review-highlight">in 3 mesi ho recuperato l'investimento 10 volte</span>. Ora mi gestiscono tutto loro.&rdquo;</p>
+                <div class="review-author">
+                    <img class="review-avatar" src="/images/clienti/elena.jpg" alt="Elena F." width="44" height="44" loading="lazy">
+                    <div class="review-info">
+                        <strong>Elena F.</strong>
+                        <span>Bilocale Veronetta, Verona</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">&ldquo;Ho provato altri tool online ma nessuno mi ha mai chiamato per spiegarmi i risultati. Qui invece il consulente mi ha dedicato 20 minuti e <span class="review-highlight">mi ha fatto capire dove stavo perdendo soldi</span>. Servizio eccezionale.&rdquo;</p>
+                <div class="review-author">
+                    <img class="review-avatar" src="/images/clienti/paolo.jpg" alt="Paolo V." width="44" height="44" loading="lazy">
+                    <div class="review-info">
+                        <strong>Paolo V.</strong>
+                        <span>Casa Vacanze, Lago di Garda</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats-strip">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="val">500+</span>
+                <span class="lbl">Annunci analizzati</span>
+            </div>
+            <div class="stat-card">
+                <span class="val">+38%</span>
+                <span class="lbl">Revenue medio</span>
+            </div>
+            <div class="stat-card">
+                <span class="val">92%</span>
+                <span class="lbl">Occupazione media</span>
+            </div>
+            <div class="stat-card">
+                <span class="val">24h</span>
+                <span class="lbl">Ti ricontattiamo</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== RESULTS (hidden, shown after analysis) ===== -->
+<section class="results-section" id="resultsSection">
+    <div class="container">
+        <div class="results-card">
+            <div class="results-header">
+                <h2>Report Analisi</h2>
+                <span class="ai-tag">AI Report</span>
+            </div>
+            <p class="results-meta" id="resultsMeta"></p>
+            <div class="results-body" id="resultsBody"></div>
+        </div>
+        <div class="results-cta">
+            <div class="cta-alert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <span>Abbiamo trovato <strong>criticit&agrave; importanti</strong> nel tuo annuncio</span>
+            </div>
+            <h2>Un nostro consulente ti chiamer&agrave; entro 24 ore <em>per lavorarci insieme</em></h2>
+            <p>Non devi fare nulla. Abbiamo gi&agrave; i tuoi dati e il report del tuo annuncio. Un esperto del nostro team ti chiamer&agrave; per:</p>
+            <div class="cta-checklist">
+                <div class="cta-check"><span class="cta-check-icon">&#10003;</span> Analizzare insieme le criticit&agrave; trovate dall'AI</div>
+                <div class="cta-check"><span class="cta-check-icon">&#10003;</span> Mostrarti cosa modificare per ottenere pi&ugrave; prenotazioni</div>
+                <div class="cta-check"><span class="cta-check-icon">&#10003;</span> Darti una stima reale di quanto pu&ograve; rendere il tuo immobile</div>
+                <div class="cta-check"><span class="cta-check-icon">&#10003;</span> Proporti la gestione completa, se vuoi delegare tutto</div>
+            </div>
+            <p class="cta-note">Chiamata gratuita di 15 minuti, senza nessun impegno. Ti chiamiamo noi.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-logo">
+            <img src="/images/logo.png" alt="Polverino Rentals" width="96" height="32">
+        </div>
+        <p>&copy; 2025 Polverino Rentals</p>
+    </div>
+</footer>
+
+<script>
+(function () {
+    'use strict';
+
+    var form = document.getElementById('analyzeForm');
+    var loadingState = document.getElementById('loadingState');
+    var errorState = document.getElementById('errorState');
+    var errorMsg = document.getElementById('errorMsg');
+    var resultsSection = document.getElementById('resultsSection');
+    var resultsBody = document.getElementById('resultsBody');
+    var resultsMeta = document.getElementById('resultsMeta');
+    var retryBtn = document.getElementById('retryBtn');
+
+    function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    function markError(name) {
+        var el = form.querySelector('[name="' + name + '"]');
+        if (el) { var g = el.closest('.form-group'); if (g) g.classList.add('error'); }
+    }
+
+    function clearErrors() {
+        form.querySelectorAll('.form-group').forEach(function (g) { g.classList.remove('error'); });
+    }
+
+    function showForm() {
+        form.style.display = '';
+        loadingState.classList.remove('active');
+        errorState.classList.remove('active');
+    }
+
+    function showLoading() {
+        form.style.display = 'none';
+        errorState.classList.remove('active');
+        loadingState.classList.add('active');
+        animateLoadingSteps();
+    }
+
+    function showError(msg) {
+        form.style.display = 'none';
+        loadingState.classList.remove('active');
+        errorMsg.textContent = msg;
+        errorState.classList.add('active');
+    }
+
+    /* Animated loading steps */
+    var loadingTimers = [];
+    function animateLoadingSteps() {
+        var steps = ['step1', 'step2', 'step3', 'step4'];
+        steps.forEach(function (id) {
+            var el = document.getElementById(id);
+            el.className = 'loading-step';
+        });
+        document.getElementById('step1').classList.add('active');
+
+        var delays = [3000, 6000, 9000];
+        delays.forEach(function (delay, i) {
+            loadingTimers.push(setTimeout(function () {
+                document.getElementById(steps[i]).classList.remove('active');
+                document.getElementById(steps[i]).classList.add('done');
+                if (steps[i + 1]) document.getElementById(steps[i + 1]).classList.add('active');
+            }, delay));
+        });
+    }
+
+    function clearLoadingTimers() {
+        loadingTimers.forEach(clearTimeout);
+        loadingTimers = [];
+    }
+
+    /* Simple markdown to HTML */
+    function mdToHtml(md) {
+        return md
+            .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+            .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+            .replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>')
+            .replace(/^[-*]\s+(.+)$/gm, '<li>$1</li>')
+            .replace(/(<li>[\s\S]*?<\/li>(\n|$))+/g, function (m) { return '<ul>' + m + '</ul>'; })
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.+?)\*/g, '<em>$1</em>')
+            .replace(/\n{2,}/g, '</p><p>')
+            .replace(/\n/g, '<br>')
+            .replace(/^/, '<p>')
+            .replace(/$/, '</p>')
+            .replace(/<p><h/g, '<h')
+            .replace(/<\/h([23])><\/p>/g, '</h$1>')
+            .replace(/<p><ul>/g, '<ul>')
+            .replace(/<\/ul><\/p>/g, '</ul>')
+            .replace(/<p><\/p>/g, '');
+    }
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        clearErrors();
+        var ok = true;
+
+        var url = form.querySelector('[name="url"]').value.trim();
+        if (!url || !url.includes('airbnb')) { markError('url'); ok = false; }
+
+        var nome = form.querySelector('[name="nome"]').value.trim();
+        if (!nome) { markError('nome'); ok = false; }
+
+        var cognome = form.querySelector('[name="cognome"]').value.trim();
+        if (!cognome) { markError('cognome'); ok = false; }
+
+        var email = form.querySelector('[name="email"]').value.trim();
+        if (!validateEmail(email)) { markError('email'); ok = false; }
+
+        var telefono = form.querySelector('[name="telefono"]').value.trim();
+        if (!telefono || telefono.replace(/\D/g, '').length < 8) { markError('telefono'); ok = false; }
+
+        if (!ok) return;
+
+        showLoading();
+
+        fetch('/api/analyze', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url: url, nome: nome, cognome: cognome, email: email, telefono: telefono })
+        })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+        .then(function (res) {
+            clearLoadingTimers();
+            if (!res.ok) { showError(res.data.error || 'Errore durante l\'analisi.'); return; }
+
+            /* Mark all steps done */
+            ['step1','step2','step3','step4'].forEach(function (id) {
+                var el = document.getElementById(id);
+                el.className = 'loading-step done';
+            });
+
+            setTimeout(function () {
+                resultsMeta.textContent = url;
+                resultsBody.innerHTML = mdToHtml(res.data.analysis);
+                resultsSection.classList.add('active');
+                loadingState.classList.remove('active');
+                document.getElementById('formCard').style.display = 'none';
+
+                setTimeout(function () {
+                    var offset = document.querySelector('.navbar').offsetHeight + 16;
+                    window.scrollTo({ top: resultsSection.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
+                }, 100);
+
+                if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+            }, 800);
+        })
+        .catch(function () {
+            clearLoadingTimers();
+            showError('Errore di connessione. Verifica la tua connessione e riprova.');
+        });
+    });
+
+    retryBtn.addEventListener('click', showForm);
+
+})();
+</script>
+</body>
+</html>
