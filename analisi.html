@@ -1064,24 +1064,31 @@ h1, h2, h3 {
             btn.disabled = true;
             btn.textContent = 'Invio in corso...';
 
-            fetch(WEBHOOK, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
+            var payload = {
                     nome: nome,
                     cognome: cognome,
                     email: email,
                     telefono: telefono,
                     zona: zona,
                     tipo_form: 'landing_analisi'
-                })
-            }).then(function () {
+                };
+
+            /* Send to Make.com + Resend in parallel */
+            Promise.all([
+                fetch(WEBHOOK, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).catch(function () {}),
+                fetch('/api/notify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).catch(function () {})
+            ]).then(function () {
                 form.style.display = 'none';
                 successEl.classList.add('active');
                 if (typeof fbq === 'function') { fbq('track', 'Lead'); }
-            }).catch(function () {
-                form.style.display = 'none';
-                successEl.classList.add('active');
             });
         });
     }

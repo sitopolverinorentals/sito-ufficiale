@@ -1421,6 +1421,13 @@ h1, h2, h3 {
 
         showLoading();
 
+        /* Send email notification (fire and forget) */
+        fetch('/api/notify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome: nome, cognome: cognome, email: email, telefono: telefono, airbnb_url: url, tipo_form: 'analisi_annuncio' })
+        }).catch(function () {});
+
         fetch('/api/analyze', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
