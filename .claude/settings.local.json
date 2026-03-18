@@ -29,7 +29,8 @@
       "Bash(curl -sL -o giovanni.jpg \"https://randomuser.me/api/portraits/men/78.jpg\")",
       "Bash(curl -sL -o chiara.jpg \"https://randomuser.me/api/portraits/women/79.jpg\")",
       "Bash(curl -sL -o paolo.jpg \"https://randomuser.me/api/portraits/men/83.jpg\")",
-      "Bash(curl -sL -o paolo.jpg \"https://randomuser.me/api/portraits/men/76.jpg\")"
+      "Bash(curl -sL -o paolo.jpg \"https://randomuser.me/api/portraits/men/76.jpg\")",
+      "WebFetch(domain:www.airbnb.it)"
     ],
     "deny": [],
     "ask": []
