@@ -62,7 +62,7 @@ export default async function handler(req, res) {
 
     try {
         await resend.emails.send({
-            from: 'Polverino Rentals <noreply@polverinorentals.it>',
+            from: 'Polverino Rentals <onboarding@resend.dev>',
             to: 'pasquipolverino@gmail.com',
             subject,
             html: htmlContent,
